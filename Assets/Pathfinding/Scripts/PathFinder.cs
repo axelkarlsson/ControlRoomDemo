@@ -54,9 +54,10 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             //Raycast to nearby nodes to see where you can travel to
             UpdateNode(cameraNode);
             updateCount = 0;
+            GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<WhatDidYouSay>().UpdateText("BANOIUA");
 
             //See if you are at node, then you win!
-            if(currentPath.Count > 0)
+            if (currentPath.Count > 0)
             {
                 PathNode upcoming = currentPath.Pop();
                 if(upcoming.DistanceTo(cameraNode) < 2)

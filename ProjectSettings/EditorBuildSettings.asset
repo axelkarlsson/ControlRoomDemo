@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pathfinding/Scenes/ToolkitPathfinding.unity
     guid: 85bf6a620b1cd1145ac118ae56802392
-  - enabled: 1
+  - enabled: 0
     path: Assets/AspectObject Scene Assets/TheHolographicTest.unity
     guid: 9e7a73c1460440d4e9c0a369e75e884a
