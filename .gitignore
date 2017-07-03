@@ -1,2 +1,8 @@
 App
+Assets\Holo*
 ControlRoomDemo*
+Library\meta*
+Library\shad*
+*.bin
+*.info
+Temp*
