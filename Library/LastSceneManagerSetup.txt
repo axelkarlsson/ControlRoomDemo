@@ -1,7 +1,0 @@
-sceneSetups:
-- path: Assets/AspectObject Scene Assets/TheHolographicTest.unity
-  isLoaded: 1
-  isActive: 1
-- path: Assets/Pathfinding/Scenes/ToolkitPathfinding.unity
-  isLoaded: 1
-  isActive: 0
