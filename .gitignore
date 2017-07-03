@@ -1,8 +1,13 @@
 App
 Assets\Holo*
 ControlRoomDemo*
+<<<<<<< HEAD
 Library\meta*
 Library\ShaderCache*
 *.bin
 *.info
 Temp*
+=======
+Library/ShaderCache
+Library/metadata
+>>>>>>> dfbae8d3f5912edad46a622910f04365af5607a8
