@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PathFinder : MonoBehaviour , ISpeechHandler
@@ -280,9 +281,11 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Listen voice commands
     public void OnSpeechKeywordRecognized(SpeechKeywordRecognizedEventData eventData)
     {
+        GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<WhatDidYouSay>().UpdateText(eventData.RecognizedText);
         switch (eventData.RecognizedText.ToLower())
         {
-            case "banana":
+            case "banana": 
+                
                 if (editMode)
                 {
                     CreateNode();

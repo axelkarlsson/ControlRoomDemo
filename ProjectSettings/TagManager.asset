@@ -17,6 +17,7 @@ TagManager:
   - PathFinder
   - NodeMenu
   - TempLine
+  - CommandDisplayer
   layers:
   - Default
   - TransparentFX
