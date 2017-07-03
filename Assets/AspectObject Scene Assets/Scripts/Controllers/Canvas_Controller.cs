@@ -4,13 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Canvas_Controller : MonoBehaviour {
-    AspectMenuController AMC;
 	// Use this for initialization
 	void Start () {
-        
-        AMC = GameObject.Find("Aspect_Menu").GetComponent<AspectMenuController>();
-        //gameObject.transform.GetComponentInChildren<Text>().font = AMC._font;
-        //gameObject.transform.GetComponentInChildren<Text>() = AMC._AspectName;
     }
 	
 	// Update is called once per frame
