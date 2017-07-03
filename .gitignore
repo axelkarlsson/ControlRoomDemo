@@ -2,7 +2,7 @@ App
 Assets\Holo*
 ControlRoomDemo*
 Library\meta*
-Library\shad*
+Library\ShaderCache*
 *.bin
 *.info
 Temp*
