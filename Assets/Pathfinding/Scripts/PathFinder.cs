@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathFinder : MonoBehaviour , ISpeechHandler
 {
@@ -61,7 +62,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                 {
                     if(currentPath.Count == 0)
                     {
-                        //Switchu scenu
+                        SceneManager_.LoadAtPosition = upcoming.transform.position;
+                        SceneManager.LoadScene(1);
                     }
                 }
                 else
@@ -245,7 +247,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
         for(uint i = 0; i < childNodes.Length; i++)
         {
-            for(uint j = i + 1; j < childNodes.Length; j++)
+            for (uint j = i + 1; j < childNodes.Length; j++)
             {
                 if (childNodes[i].neighbours.Contains(childNodes[j]))
                 {
@@ -280,7 +282,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         switch (eventData.RecognizedText.ToLower())
         {
-            case "create node":
+            case "banana":
                 if (editMode)
                 {
                     CreateNode();
@@ -299,7 +301,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     DrawLines();
                 }
                 break;
-            case "toggle mode":
+            case "apple":
                 if (!ChildBeingPlaced())
                 {
                     editMode = !editMode;

@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tip
+  - Text
+  - Canvas
+  - Border
+  - Hightlight
+  - Aspect_Menu_Item_Highlight
+  - Aspect_Menu_Item_Border
+  - Aspect_Menu_Item
+  - Aspect_Menu_Item_Canvas
+  - Aspect_Menu_Item_Text
+  - PathFinder
+  - NodeMenu
+  - TempLine
   layers:
   - Default
   - TransparentFX
@@ -37,7 +49,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Planes
   m_SortingLayers:
   - name: Default
     uniqueID: 0

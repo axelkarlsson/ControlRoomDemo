@@ -83,8 +83,10 @@ public class PathNode : MonoBehaviour
     //Adds a neighbour (can traverse to it while finding path
     public void AddNeighbour(PathNode otherNode)
     {
+        Debug.Log("YOu could at least try");
         if (!neighbours.Contains(otherNode))
         {
+            Debug.Log("Adding a neighbour");
             neighbours.Add(otherNode);
             otherNode.neighbours.Add(this);
         }
@@ -96,7 +98,7 @@ public class PathNode : MonoBehaviour
         RaycastHit hitInfo;
         Vector3 origin = transform.position;
         Vector3 direction = (othernode.transform.position - transform.position).normalized;
-        if (Physics.Raycast(origin, direction , out hitInfo, GazeManager.Instance.RaycastLayerMasks[0]) && hitInfo.transform.gameObject.GetComponentInParent<PathNode>() == othernode)
+        if (Physics.Raycast(origin, direction , out hitInfo, 20, GazeManager.Instance.RaycastLayerMasks[0]) && hitInfo.transform.gameObject.GetComponentInParent<PathNode>() == othernode)
         {
             AddNeighbour(othernode);
             return true;

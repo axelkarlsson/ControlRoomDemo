@@ -58,6 +58,8 @@ namespace HttpUtils
 
         public string MakeRequest(string parameters)
         {
+            return "a";
+            /*
             var request = (HttpWebRequest)WebRequest.Create(EndPoint + parameters);
             request.Method = Method.ToString();
             request.ContentLength = 0;
@@ -97,9 +99,9 @@ namespace HttpUtils
                 }
 
             return responseValue;
+            */
         }
     }
 
 } // class
 
-}

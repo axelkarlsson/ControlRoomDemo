@@ -26,7 +26,7 @@ public class SceneManager_ : MonoBehaviour {
         g.transform.position = pos;
         g.transform.LookAt(Camera.main.transform);
         g.transform.Rotate(Vector3.up, 180f);
-        g.active = true;
+        g.SetActive(true);
         return (g.activeInHierarchy);
     }
 }

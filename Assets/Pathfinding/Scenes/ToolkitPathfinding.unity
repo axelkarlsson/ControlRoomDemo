@@ -150,13 +150,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecognizerStart: 0
   Keywords:
-  - Keyword: create node
+  - Keyword: banana
     KeyCode: 110
   - Keyword: test
     KeyCode: 98
   - Keyword: delete node
     KeyCode: 99
-  - Keyword: toggle mode
+  - Keyword: apple
     KeyCode: 103
   - Keyword: show menu
     KeyCode: 102
@@ -369,7 +369,6 @@ MonoBehaviour:
   activeObject: {fileID: 0}
   prefabNode: {fileID: 1753220877604948, guid: 7aad4cdac431e204ea21b8ab562b7e1c, type: 2}
   destinationNodes: []
-  currentPath: []
   editMode: 0
   frameUpdateInterval: 40
 --- !u!4 &1460170762

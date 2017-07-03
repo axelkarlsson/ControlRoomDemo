@@ -509,11 +509,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: ControlRoomDemo
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 808985fdfd12d401
   metroApplicationDescription: ControlRoomDemo
   wsaImages: {}
   metroTileShortName: 
@@ -590,7 +590,8 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 54294f89-185e-411a-acca-28f84ac8bf20
