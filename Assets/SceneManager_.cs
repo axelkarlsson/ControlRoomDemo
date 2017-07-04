@@ -27,8 +27,6 @@ public class SceneManager_ : MonoBehaviour {
         GameObject g = Instantiate(Resources.Load("ObjectName") as GameObject, null);
         g.name = "Demo Object";
         g.transform.position = pos;
-        g.transform.LookAt(Camera.main.transform);
-        g.transform.Rotate(Vector3.up, 180f);
         g.SetActive(true);
         return (g.activeInHierarchy);
     }

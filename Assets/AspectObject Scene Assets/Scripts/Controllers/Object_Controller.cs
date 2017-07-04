@@ -33,7 +33,7 @@ public class Object_Controller : MonoBehaviour
         AspectMenu.transform.SetParent(transform, false);
         AspectMenu.name = "Aspect_Menu";
         AspectMenu.SetActive(true);
-        transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        InitializeOnStart();
         AspectMenu.SetActive(false);
         
     } 
@@ -96,4 +96,10 @@ public class Object_Controller : MonoBehaviour
         }
         //Close the associated Aspect Window, if any
     } //Close Window With Associated Aspect Name
+    void InitializeOnStart()
+    {
+        g.transform.Rotate(Vector3.up, 180f);
+        g.transform.LookAt(Camera.main.transform);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+    }
 }
