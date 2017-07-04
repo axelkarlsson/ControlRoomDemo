@@ -4,22 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManager_ : MonoBehaviour {
-
-    public static Vector3 LoadAtPosition;
+    
     bool hasLoaded = false;
 	// Use this for initialization
 	void Start () {
-        if (LoadAtPosition == Vector3.zero)
-        {
-            LoadAtPosition = new Vector3(0, 0, 3);
-        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().name == "TheHolographicTest" &&  !hasLoaded && LoadAtPosition != Vector3.zero)
+		if (SceneManager.GetActiveScene().name == "TheHolographicTest" &&  !hasLoaded)
         {
-            hasLoaded = PlaceDemoObject(LoadAtPosition);
+            hasLoaded = PlaceDemoObject(new Vector3(0,0,2));
         }
 	}
     bool PlaceDemoObject(Vector3 pos)
