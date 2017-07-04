@@ -98,8 +98,8 @@ public class Object_Controller : MonoBehaviour
     } //Close Window With Associated Aspect Name
     void InitializeOnStart()
     {
-        transform.Rotate(Vector3.up, 180f);
         transform.LookAt(Camera.main.transform);
+        transform.Rotate(Vector3.up, 180f);
         transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
 }
