@@ -25,6 +25,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     private int nodeId;
     private PathNode cameraNode;
 
+
     // Use this for initialization
     void Start()
     {
@@ -286,43 +287,71 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         switch (eventData.RecognizedText.ToLower())
         {
-            case "input": 
-               if (editMode)
-               {
-                    CreateNode();
-               }
+            case "input":
+                CreateNodeCommand();
                 break;
             case "delete node":
-                if (editMode)
-                {
-                    RemoveNode();
-                }
+                DeleteNodeCommand();
                 break;
             case "draw lines":
-                if (editMode)
-                {
-                    RemoveLines();
-                    DrawLines();
-                }
+                LineNeighboursCommand();
                 break;
             case "edit":
-                if (!ChildBeingPlaced())
-                {
-                    editMode = !editMode;
-                    if (!editMode)
-                    {
-                        RemoveLines();
-                    }
-                    HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = editMode;
-                    foreach (PathNode childNode in GetComponentsInChildren<PathNode>())
-                    {
-                        childNode.ShowNode(editMode);
-                    }
-                }
+                ToggleModeCommand();
                 break;
             case "show menu":
-                GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();
+                ShowNavigationMenuCommand();
                 break;
         }
     }
+
+    #region Voice Command Methods
+    public void CreateNodeCommand()
+    {
+        if (editMode)
+        {
+            CreateNode();
+        }
+    }
+
+    public void DeleteNodeCommand()
+    {
+        if (editMode)
+        {
+            RemoveNode();
+        }
+    }
+
+    public void LineNeighboursCommand()
+    {
+        if (editMode)
+        {
+            RemoveLines();
+            DrawLines();
+        }
+    }
+
+    public void ToggleModeCommand()
+    {
+        if (!ChildBeingPlaced())
+        {
+            editMode = !editMode;
+            if (!editMode)
+            {
+                RemoveLines();
+            }
+            HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = editMode;
+            foreach (PathNode childNode in GetComponentsInChildren<PathNode>())
+            {
+                childNode.ShowNode(editMode);
+            }
+        }
+    }
+
+    public void ShowNavigationMenuCommand()
+    {
+        GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();
+    }
+
+#endregion
 }
