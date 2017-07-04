@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
+using UnityEngine.SceneManagement;
 using System;
 
 public class Object_Controller : MonoBehaviour
@@ -39,6 +40,12 @@ public class Object_Controller : MonoBehaviour
     } 
     // Update is called once per frame
     void Update(){
+        if (Vector3.Distance(transform.position, Camera.main.transform.position) >= 3f)
+        {
+            SceneManager.LoadScene(0);
+            SceneManager_.hasLoaded = false;
+            SceneManager.UnloadSceneAsync(1);
+        }
     } //Does Nothing ATM
 
     void OnTap() {

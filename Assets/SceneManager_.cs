@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager_ : MonoBehaviour {
     
-    bool hasLoaded = false;
+    public static bool hasLoaded = false;
 	// Use this for initialization
 	void Start () {
 	}
