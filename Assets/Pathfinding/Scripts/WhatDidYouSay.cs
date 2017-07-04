@@ -15,9 +15,4 @@ public class WhatDidYouSay : MonoBehaviour {
         transform.LookAt(Camera.main.transform.position);
         transform.Rotate(0, 180, 0);
 	}
-
-    public void UpdateText(string newText)
-    {
-        GetComponentInChildren<TextMesh>().text = newText;
-    }
 }
