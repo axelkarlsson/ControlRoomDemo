@@ -68,6 +68,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     {
                         Debug.Log("Time to switch scene");
                         SceneManager_.LoadAtPosition = upcoming.transform.position;
+                        SceneManager_.LoadAtPosition = new Vector3(0, 0, 1);
                         SceneManager.LoadScene(1);
                     }
                 }
