@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pathfinding/Scenes/PathFindingAddition.unity
     guid: afa7e3c5942105442aa30df14d9d895f
+  - enabled: 1
+    path: Assets/AspectObject Scene Assets/Test.unity
+    guid: 4c2a3488f4cff494bb5b46b914cb01ba

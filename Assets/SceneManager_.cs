@@ -12,7 +12,7 @@ public class SceneManager_ : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().name == "TheHolographicTest" &&  !hasLoaded)
+		if (SceneManager.GetActiveScene().name == "Test" &&  !hasLoaded)
         {
             hasLoaded = PlaceDemoObject(new Vector3(0,0,2));
         }

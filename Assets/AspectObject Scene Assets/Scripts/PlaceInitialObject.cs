@@ -24,7 +24,6 @@ public class PlaceInitialObject : MonoBehaviour {
         Frames++;
         if (Frames == 60)
         {
-            
             Debug.Log(hitInfo.point);
             placeObject(g, hitInfo.point + new Vector3(0,0,-0.1f));
         }

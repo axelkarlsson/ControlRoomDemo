@@ -44,7 +44,7 @@ public class Object_Controller : MonoBehaviour
         {
             //SceneManager.LoadScene(0);
             SceneManager_.hasLoaded = false;
-            SceneManager.UnloadSceneAsync(1);
+            SceneManager.UnloadSceneAsync("Test");
         }
     } //Does Nothing ATM
 
