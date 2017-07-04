@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65675693438863494}
   - component: {fileID: 114823030797436686}
   - component: {fileID: 114201683823498396}
+  - component: {fileID: 114264318004970178}
   m_Layer: 0
   m_Name: _TempPlane
   m_TagString: Untagged
@@ -167,7 +168,18 @@ MonoBehaviour:
   SavedAnchorFriendlyName: SavedAnchorFriendlyName
   PlaceParentOnTap: 1
   ParentGameObjectToPlace: {fileID: 1340204823919562}
-  IsBeingPlaced: 1
+  IsBeingPlaced: 0
+--- !u!114 &114264318004970178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825723962198368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c2d771ebedee442acb48c0402960ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114823030797436686
 MonoBehaviour:
   m_ObjectHideFlags: 1
