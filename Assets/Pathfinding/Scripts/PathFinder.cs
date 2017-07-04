@@ -54,7 +54,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             //Raycast to nearby nodes to see where you can travel to
             UpdateNode(cameraNode);
             updateCount = 0;
-            GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<WhatDidYouSay>().UpdateText("BANOIUA");
+
 
             //See if you are at node, then you win!
             if (currentPath.Count > 0)
@@ -282,7 +282,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Listen voice commands
     public void OnSpeechKeywordRecognized(SpeechKeywordRecognizedEventData eventData)
     {
-        GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<WhatDidYouSay>().UpdateText(eventData.RecognizedText);
         switch (eventData.RecognizedText.ToLower())
         {
             case "banana": 
