@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager_ : MonoBehaviour {
 
-    static public Vector3 LoadAtPosition;
+    public static Vector3 LoadAtPosition;
     bool hasLoaded = false;
 	// Use this for initialization
 	void Start () {
-		
+        if (LoadAtPosition == Vector3.zero)
+        {
+            LoadAtPosition = new Vector3(0, 0, 3);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().name == "TheHolographicTest" &&  !hasLoaded && LoadAtPosition != null)
+		if (SceneManager.GetActiveScene().name == "TheHolographicTest" &&  !hasLoaded && LoadAtPosition != Vector3.zero)
         {
             hasLoaded = PlaceDemoObject(LoadAtPosition);
         }
