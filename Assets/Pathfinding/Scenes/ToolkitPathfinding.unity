@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46b5bcc0eee90341826f790dbffa530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandDisplayTime: 60
 --- !u!1 &242970858
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,13 +287,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecognizerStart: 0
   Keywords:
-  - Keyword: banana
+  - Keyword: input
     KeyCode: 110
-  - Keyword: test
+  - Keyword: draw lines
     KeyCode: 98
   - Keyword: delete node
     KeyCode: 99
-  - Keyword: apple
+  - Keyword: edit
     KeyCode: 103
   - Keyword: show menu
     KeyCode: 102
@@ -605,6 +606,11 @@ Prefab:
     - target: {fileID: 4000013298573622, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011154029958, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
+        type: 2}
+      propertyPath: drawVisualMeshes
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}

@@ -15,6 +15,7 @@ public class PathNode : MonoBehaviour
     public string nodeName;
     private bool cameraNode = false;
   
+
     public class PathFinderNode : Priority_Queue.FastPriorityQueueNode
     {
         public PathNode parent;
@@ -30,6 +31,7 @@ public class PathNode : MonoBehaviour
 
     }
 
+
     // Use this for initialization
     void Start()
     {
@@ -41,6 +43,7 @@ public class PathNode : MonoBehaviour
         else { cameraNode = true; }
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -49,6 +52,7 @@ public class PathNode : MonoBehaviour
             transform.Rotate(Vector3.forward, 1f);
         }
     }
+
 
     //Rotate this node to look at the next node in the path
     public void Rotate(PathNode target)
@@ -60,12 +64,14 @@ public class PathNode : MonoBehaviour
         }
     }
 
+
     //Rotate the destination node to look at the ground
     public void RotateEndPoint()
     {
         GetComponentInChildren<MeshRenderer>().enabled = true;
         transform.LookAt(transform.position + Vector3.down);
     }
+
 
     //Reset the node so a new path can be found
     public void ResetNode()
@@ -83,14 +89,13 @@ public class PathNode : MonoBehaviour
     //Adds a neighbour (can traverse to it while finding path
     public void AddNeighbour(PathNode otherNode)
     {
-        Debug.Log("YOu could at least try");
         if (!neighbours.Contains(otherNode))
         {
-            Debug.Log("Adding a neighbour");
             neighbours.Add(otherNode);
             otherNode.neighbours.Add(this);
         }
     }
+
 
     // Links two nodes together if there are no colliders between them. Returns true if they can be linked and adds the nodes as neihgbours.
     public bool TryLink(PathNode othernode)
@@ -106,6 +111,7 @@ public class PathNode : MonoBehaviour
         return false;
     }
 
+
     //Rechecks what neighbours this node has, useful after moving a node
     public void UpdateNeighbours()
     {
@@ -115,6 +121,7 @@ public class PathNode : MonoBehaviour
             parent.UpdateNode(this);
         }
     }
+
 
     //Remove a neighbour
     public void RemoveNeighbour(PathNode otherNode)
@@ -131,6 +138,7 @@ public class PathNode : MonoBehaviour
     }
 
 
+
     //Turn on or off the meshrenderer and meshcollider for the node
     public void ShowNode(bool active)
     {
@@ -138,6 +146,7 @@ public class PathNode : MonoBehaviour
         //Layer 0 is default, layer 2 has no collision
         gameObject.layer = active ? 0 : 2;
     }
+
 
     //When hold, select this node or deselect it if already selected
     public void NodeSelected()
@@ -152,6 +161,7 @@ public class PathNode : MonoBehaviour
         }
         Highlight(finder.activeObject == gameObject);
     }
+
 
     public void Highlight(bool active)
     {

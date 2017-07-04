@@ -17,7 +17,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     public List<PathNode> destinationNodes;
     //Sorted list of what node is next in the path
     public Stack<PathNode> currentPath = new Stack<PathNode>();
-    public bool editMode = false;
+    public bool editMode;
 
     [Tooltip("After how many frames the camera node should check what neighbours it can see")]
     public int frameUpdateInterval;
@@ -28,7 +28,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     // Use this for initialization
     void Start()
     {
-            //Register as a fallback listener for when no hologram is looked at
+        //Register as a fallback listener for when no hologram is looked at
         InputManager.Instance.PushFallbackInputHandler(gameObject);
 
         //Create the node that follows the camera
@@ -62,8 +62,10 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                 PathNode upcoming = currentPath.Pop();
                 if(upcoming.DistanceTo(cameraNode) < 2)
                 {
+                    upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
+                        Debug.Log("Time to switch scene");
                         SceneManager_.LoadAtPosition = upcoming.transform.position;
                         SceneManager.LoadScene(1);
                     }
@@ -284,12 +286,11 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         switch (eventData.RecognizedText.ToLower())
         {
-            case "banana": 
-                
-                if (editMode)
-                {
+            case "input": 
+               if (editMode)
+               {
                     CreateNode();
-                }
+               }
                 break;
             case "delete node":
                 if (editMode)
@@ -297,14 +298,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     RemoveNode();
                 }
                 break;
-            case "test":
+            case "draw lines":
                 if (editMode)
                 {
                     RemoveLines();
                     DrawLines();
                 }
                 break;
-            case "apple":
+            case "edit":
                 if (!ChildBeingPlaced())
                 {
                     editMode = !editMode;
