@@ -305,6 +305,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     }
 
     #region Voice Command Methods
+    //Creates a new node
     public void CreateNodeCommand()
     {
         if (editMode)
@@ -313,6 +314,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
+
+    //Deletes the currently held node
     public void DeleteNodeCommand()
     {
         if (editMode)
@@ -321,6 +324,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
+
+    //Connects neighbouring nodes with lines
     public void LineNeighboursCommand()
     {
         if (editMode)
@@ -330,6 +335,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
+
+    //Toggle editMode
     public void ToggleModeCommand()
     {
         if (!ChildBeingPlaced())
@@ -339,6 +346,10 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             {
                 RemoveLines();
             }
+            else
+            {
+                GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ResetMenu();
+            }
             HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = editMode;
             foreach (PathNode childNode in GetComponentsInChildren<PathNode>())
             {
@@ -347,9 +358,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
+
+    //Show the navigation menu
     public void ShowNavigationMenuCommand()
     {
-        GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();
+        if (!editMode)
+        {
+            GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();
+        }
     }
 
 #endregion
