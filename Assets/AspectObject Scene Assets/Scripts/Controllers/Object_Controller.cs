@@ -42,7 +42,7 @@ public class Object_Controller : MonoBehaviour
     void Update(){
         if (Vector3.Distance(transform.position, Camera.main.transform.position) >= 3f)
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
             SceneManager_.hasLoaded = false;
             SceneManager.UnloadSceneAsync(1);
         }

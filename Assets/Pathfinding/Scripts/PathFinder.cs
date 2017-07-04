@@ -66,8 +66,10 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
+                        /*
                         Debug.Log("Time to switch scene");
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+                        */
                     }
                 }
                 else
