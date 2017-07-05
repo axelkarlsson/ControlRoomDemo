@@ -24,6 +24,7 @@ public class SceneManager_ : MonoBehaviour {
     bool PlaceDemoObject(Vector3 pos)
     {
         GameObject g = Instantiate(Resources.Load("ObjectName") as GameObject, transform);
+        g.transform.parent = null;
         g.name = "Demo Object";
         g.transform.position = pos;
         g.SetActive(true);
