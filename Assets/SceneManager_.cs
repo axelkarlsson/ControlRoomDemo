@@ -8,7 +8,7 @@ public class SceneManager_ : MonoBehaviour {
     public static bool hasLoaded = false;
 	// Use this for initialization
 	void Start () {
-        hasLoaded = PlaceDemoObject(new Vector3(0, 0, 2));
+        hasLoaded = PlaceDemoObject(Camera.main.transform.forward.normalized * 2f);
     }
 	
 	// Update is called once per frame
