@@ -8,19 +8,26 @@ using UnityEngine.SceneManagement;
 
 public class PathFinder : MonoBehaviour , ISpeechHandler
 {
-    public string Path;
     //The object which is currently selected
     public GameObject activeObject = null;
+
+    [Tooltip("The prefab of a node used in PathFinding.")]
     public GameObject prefabNode;
+
+    [Tooltip("The prefab of a line renderer for showing which nodes are connected.")]
+    public GameObject prefabLineRenderer;
 
     //List of nodes that can be searched for destinations to navigate to    
     public List<PathNode> destinationNodes;
-    //Sorted list of what node is next in the path
+
+    //Stack of nodes in the current path, destination is the last node in the stack.
     public Stack<PathNode> currentPath = new Stack<PathNode>();
+
     public bool editMode;
 
     [Tooltip("After how many frames the camera node should check what neighbours it can see")]
     public int frameUpdateInterval;
+
     private int updateCount = 0;
     private int nodeId;
     private PathNode cameraNode;
@@ -107,7 +114,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
            
         //Don't do anything if another node is being placed
-        if (ChildBeingPlaced()) { return null; }
+        if (IsChildBeingPlaced()) { return null; }
 
         GameObject newNode = Instantiate(prefabNode, transform);
         PathNode newPathNode = newNode.GetComponent<PathNode>();
@@ -122,7 +129,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     }
 
     //Returns if any child nodes are currently being moved
-    private bool ChildBeingPlaced()
+    private bool IsChildBeingPlaced()
     {
 
         PathNode[] children = GetChildNodes();
@@ -151,6 +158,12 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     node.RemoveNeighbour(child);
                 }
             }
+        }
+        //Might be a bad idea to always do this
+        if (cameraNode != node)
+        {
+            RemoveLines();
+            DrawLines();
         }
     }
 
@@ -219,13 +232,11 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
 
         //Search has been done
-        
+        //If a path was found, navigate back from the endNode to the start while pushing them to the navigation stack
         if (pathFound)
         {
-            string test = "";
             current = end;
 
-            test += current.transform.name;
             current.inActivePath = true;
             currentPath.Push(current);
             current.RotateEndPoint();
@@ -235,13 +246,11 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             {
                 tmp = current;
                 current = current.cameFrom;
-                test += " " + current.transform.name + " ";
                 current.inActivePath = true;
                 currentPath.Push(current);
                 current.Rotate(tmp);
                 
             }
-            Path = test;
         }
 
     }
@@ -258,18 +267,26 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             {
                 if (childNodes[i].neighbours.Contains(childNodes[j]))
                 {
-                    GameObject line = new GameObject();
-                    line.tag = "TempLine";
-                    LineRenderer renderedLine = line.AddComponent<LineRenderer>();
+                    GameObject line = Instantiate(prefabLineRenderer, transform);
                     Vector3[] pos = new Vector3[] {childNodes[i].transform.position, childNodes[j].transform.position };
+                    LineRenderer renderedLine = line.GetComponent<LineRenderer>();
                     renderedLine.SetPositions(pos);
-                    renderedLine.startWidth = 0.01f;
-                    renderedLine.endWidth = 0.01f;
-                    renderedLine.startColor = Color.blue;
-                    renderedLine.endColor = Color.green;
 
                 }
             }
+        }
+    }
+
+    //Shows lines between one node and the rest
+    public void DrawLines(PathNode node)
+    {
+        foreach(PathNode otherNode in node.neighbours)
+        {
+            GameObject line = Instantiate(prefabLineRenderer, transform);
+            LineRenderer renderedLine = line.GetComponent<LineRenderer>();
+            Vector3[] pos = new Vector3[] { node.transform.position, otherNode.transform.position };
+            renderedLine.SetPositions(pos);
+                    
         }
     }
 
@@ -334,7 +351,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         if (editMode)
         {
             RemoveLines();
-            DrawLines();
+            if(activeObject != null && activeObject.GetComponent<PathNode>() != null )
+            {
+                DrawLines(activeObject.GetComponent<PathNode>());
+            }
+            else{
+                DrawLines();
+            }
+            
         }
     }
 
@@ -342,7 +366,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Toggle editMode
     public void ToggleModeCommand()
     {
-        if (!ChildBeingPlaced())
+        if (!IsChildBeingPlaced())
         {
             editMode = !editMode;
             if (!editMode)

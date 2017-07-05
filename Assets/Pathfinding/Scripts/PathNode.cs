@@ -13,6 +13,8 @@ public class PathNode : MonoBehaviour
     public PathNode cameFrom;
     public PathFinderNode node;
     public string nodeName;
+
+    //Used for the node that is attached to the user (camera)
     private bool cameraNode = false;
   
 
