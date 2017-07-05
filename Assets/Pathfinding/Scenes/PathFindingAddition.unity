@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 242970858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 481, y: 202, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 175205958}
@@ -272,9 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8723ddce15a21418083ef9d0a5f810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: 
   activeObject: {fileID: 0}
   prefabNode: {fileID: 1753220877604948, guid: 7aad4cdac431e204ea21b8ab562b7e1c, type: 2}
+  prefabLineRenderer: {fileID: 1150463417943940, guid: fb408d45fb494524896cdf9155af8d68,
+    type: 2}
   destinationNodes: []
   editMode: 0
   frameUpdateInterval: 40
@@ -285,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1460170760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9, y: 0.000000008381903, z: 15.071667}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
