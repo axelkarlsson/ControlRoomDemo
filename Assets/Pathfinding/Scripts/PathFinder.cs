@@ -300,7 +300,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
-
     //Listen voice commands
     public void OnSpeechKeywordRecognized(SpeechKeywordRecognizedEventData eventData)
     {
