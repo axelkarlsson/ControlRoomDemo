@@ -12,12 +12,13 @@ public class Object_Text_Controler : MonoBehaviour, IInputHandler {
 
     public void OnInputUp(InputEventData eventData)
     {
-        transform.root.SendMessage("OnTap");
+        _localroot.SendMessage("OnTap");
     }
-
+    GameObject _localroot;
     // Use this for initialization
     void Start () {
-        gameObject.GetComponent<Text>().text = transform.root.name;
+        _localroot = GetComponentInParent<Object_Controller>().gameObject;
+        gameObject.GetComponent<Text>().text = _localroot.name;
 		
 	}
 	

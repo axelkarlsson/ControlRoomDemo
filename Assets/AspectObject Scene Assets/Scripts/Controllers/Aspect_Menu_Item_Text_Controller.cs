@@ -8,9 +8,10 @@ using System;
 public class Aspect_Menu_Item_Text_Controller : MonoBehaviour, IInputHandler
 {
     bool open = false;
+    GameObject _localroot;
 	// Use this for initialization
 	void Start () {
-		
+        _localroot = GetComponentInParent<Object_Controller>().gameObject;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +26,7 @@ public class Aspect_Menu_Item_Text_Controller : MonoBehaviour, IInputHandler
         }
         else
         {
-            transform.root.gameObject.SendMessage("GetAspectWindow", gameObject.GetComponent<Text>().text);
+            _localroot.SendMessage("GetAspectWindow", gameObject.GetComponent<Text>().text);
         }
         open = !open;
     }
@@ -35,7 +36,7 @@ public class Aspect_Menu_Item_Text_Controller : MonoBehaviour, IInputHandler
     }
     void OnClose()
     {
-        transform.root.gameObject.SendMessage("CloseAspectWindow", gameObject.GetComponent<Text>().text);
+        _localroot.SendMessage("CloseAspectWindow", gameObject.GetComponent<Text>().text);
     }
     void OnCloseAll()
     {
