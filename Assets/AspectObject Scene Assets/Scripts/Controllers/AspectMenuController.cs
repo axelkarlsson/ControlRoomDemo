@@ -87,6 +87,8 @@ public class AspectMenuController : MonoBehaviour
                 }
             }
         } //Calculate Menu Item Positions
+        transform.LookAt(Camera.main.transform);
+        transform.Rotate(Vector3.up, 180f);
     }
 
     // Update is called once per frame
