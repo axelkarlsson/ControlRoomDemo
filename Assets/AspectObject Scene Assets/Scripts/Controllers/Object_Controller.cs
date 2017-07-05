@@ -31,8 +31,6 @@ public class Object_Controller : MonoBehaviour
         AspectMenu.transform.SetParent(transform, false);
         AspectMenu.name = "Aspect_Menu";
         AspectMenu.SetActive(true);
-        InitializeOnStart();
-        AspectMenu.SetActive(false);
         
     } 
     // Update is called once per frame
@@ -83,20 +81,21 @@ public class Object_Controller : MonoBehaviour
     void GetAspectWindow(string AspectName)
     {
         GameObject g = Instantiate(Resources.Load("Aspect_Window"), null) as GameObject;
-        g.name = AspectName;
+        g.name = AspectName + "_window";
         g.transform.position = transform.position;
         g.transform.RotateAround(Camera.main.transform.position,Vector3.up, 30f);
     } //Create New Window associated with given AspectName
 
     void CloseAspectWindow(string AspectName)
     {
-        Destroy(GameObject.Find(AspectName));
+        Destroy(GameObject.Find(AspectName + "_window"));
         //Close the associated Aspect Window, if any
     } //Close Window With Associated Aspect Name
-    void InitializeOnStart()
+    void ChildLoaded()
     {
         transform.LookAt(Camera.main.transform);
         transform.Rotate(Vector3.up, 180f);
         transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        AspectMenu.SetActive(false);
     }
 }
