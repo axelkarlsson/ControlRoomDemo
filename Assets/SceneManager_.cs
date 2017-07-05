@@ -9,6 +9,7 @@ public class SceneManager_ : MonoBehaviour {
     public static Vector3 LoadPos = Vector3.zero;
 	// Use this for initialization
 	void Start () {
+        LoadPos = Camera.main.transform.position + Camera.main.transform.forward.normalized * 2f;
         hasLoaded = PlaceDemoObject(LoadPos);
     }
 	
