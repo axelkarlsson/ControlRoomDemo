@@ -5,10 +5,12 @@ using HoloToolkit.Unity.InputModule;
 
 public class TempPlaneController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        GetComponent<TapToPlace>().IsBeingPlaced = true;
-	}
+    TapToPlace Placer;
+    // Use this for initialization
+    void Start () {
+        Placer = GetComponent<TapToPlace>();
+        Placer.OnInputClicked(eventData: null);
+    }
 	
 	// Update is called once per frame
 	void Update () {

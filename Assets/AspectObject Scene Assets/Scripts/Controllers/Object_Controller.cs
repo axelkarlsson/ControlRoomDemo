@@ -82,8 +82,6 @@ public class Object_Controller : MonoBehaviour
     {
         GameObject g = Instantiate(Resources.Load("Aspect_Window"), null) as GameObject;
         g.name = AspectName + "_window";
-        g.transform.position = transform.position;
-        g.transform.RotateAround(Camera.main.transform.position,Vector3.up, 30f);
     } //Create New Window associated with given AspectName
 
     void CloseAspectWindow(string AspectName)
