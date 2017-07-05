@@ -15,6 +15,7 @@ public class NodeItemPlacer : MonoBehaviour {
 
     public void ShowMenu()
     {
+
         //Instantiate a menu object for each Node
         ResetMenu();
         if (finder.destinationNodes.Count > 0)
@@ -27,8 +28,6 @@ public class NodeItemPlacer : MonoBehaviour {
                 NodeItem.GetComponent<MenuItemLink>().correspondingNode = G;
             }
             Vector3 Menu_Bounds = NodeItems[0].GetComponent<BoxCollider>().bounds.size;
-            //Resize Entire Menu
-            GetComponent<RectTransform>().sizeDelta = new Vector2(Menu_Bounds.x, Menu_Bounds.y * NodeItems.Count);
             //Fit Each Menu Object
             float objC = 0;
 

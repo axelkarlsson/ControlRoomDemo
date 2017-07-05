@@ -74,9 +74,9 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
-                        
-                        Debug.Log("Time to switch scene");
-                        SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
+
+                        //Todo
+                        GameObject.Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
                         
                     }
                 }
