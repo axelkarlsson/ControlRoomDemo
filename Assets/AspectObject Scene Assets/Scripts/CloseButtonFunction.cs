@@ -7,7 +7,7 @@ using UnityEngine;
 public class CloseButtonFunction : MonoBehaviour, IInputHandler {
     public void OnInputDown(InputEventData eventData)
     {
-        GameObject.Find("Demo Object").SendMessage("CloseAspectWindow", transform.root.name);
+        Destroy(transform.root.gameObject);
     }
 
     public void OnInputUp(InputEventData eventData)
