@@ -351,9 +351,10 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         if (editMode)
         {
             RemoveLines();
-            if(activeObject != null && activeObject.GetComponent<PathNode>() != null )
+            PathNode node = activeObject == null ? null : activeObject.GetComponent<PathNode>();
+            if(node != null)
             {
-                DrawLines(activeObject.GetComponent<PathNode>());
+                DrawLines(node);
             }
             else{
                 DrawLines();
