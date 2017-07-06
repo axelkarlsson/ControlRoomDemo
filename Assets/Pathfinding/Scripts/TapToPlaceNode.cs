@@ -21,8 +21,10 @@ namespace HoloToolkit.Unity.InputModule
         [Tooltip("Distance from camera to keep the object while placing it.")]
         public float DefaultGazeDistance = 2.0f;
 
+        /*
         [Tooltip("Supply a friendly name for the anchor as the key name for the WorldAnchorStore.")]
         public string SavedAnchorFriendlyName = "SavedAnchorFriendlyName";
+        */
 
         [Tooltip("Place parent on tap instead of current game object.")]
         public bool PlaceParentOnTap;
@@ -49,6 +51,7 @@ namespace HoloToolkit.Unity.InputModule
 
         protected virtual void Start()
         {
+            /*
             // Make sure we have all the components in the scene we need.
             if (WorldAnchorManager.Instance == null)
             {
@@ -63,6 +66,7 @@ namespace HoloToolkit.Unity.InputModule
                     WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
                 }
             }
+            */
 
             DetermineParent();
 
@@ -124,11 +128,14 @@ namespace HoloToolkit.Unity.InputModule
                 InputManager.Instance.AddGlobalListener(gameObject);
 
                 // If the user is in placing mode, display the spatial mapping mesh.
+                /*
 #if UNITY_WSA && !UNITY_EDITOR
 
+            
                 //Removes existing world anchor if any exist.
                 WorldAnchorManager.Instance.RemoveAnchor(gameObject);
 #endif
+*/
             }
             else
             {
@@ -141,13 +148,16 @@ namespace HoloToolkit.Unity.InputModule
                     GetComponentInParent<PathNode>().UpdateNeighbours();
                 }
 
-                // If the user is not in placing mode, hide the spatial mapping mesh.
+                // If the user is not in placing mode, hide the spatial mapping mesh
+                /*
 #if UNITY_WSA && !UNITY_EDITOR
 
                 // Add world anchor when object placement is done.
                 WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
 #endif
+                */
             }
+            
         }
 
         private void DetermineParent()
