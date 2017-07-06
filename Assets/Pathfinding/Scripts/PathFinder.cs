@@ -61,7 +61,9 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             //Move cameranode to camera position
             cameraNode.transform.position = cameraPos;
             //Raycast to nearby nodes to see where you can travel to
+            /*
             UpdateNode(cameraNode);
+            */
             updateCount = 0;
 
 
@@ -95,6 +97,13 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         if (!editMode)
         {
+            //Set node layers to 0 to enable collision so that camera can look for neihbours
+            SetNodeLayer(0);
+
+            UpdateNode(cameraNode);
+            //Set node layers to 2 to disable collision
+            SetNodeLayer(2);
+
             FindPath(cameraNode, destination);
         }
     }
@@ -145,6 +154,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     public PathNode[] GetChildNodes()
     {
         return GetComponentsInChildren<PathNode>();
+    }
+
+    public void SetNodeLayer(int layer)
+    {
+        foreach(PathNode node in GetChildNodes())
+        {
+            node.GetComponentInChildren<MeshRenderer>().gameObject.layer = layer;
+        }
     }
 
     //Updates the neighbours of a node
