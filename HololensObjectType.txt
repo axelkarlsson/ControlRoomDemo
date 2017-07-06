@@ -1,0 +1,18 @@
+Object Item & Aspect Menu Item
+-GazeTarget (Invisible box that GazeManager detects)
+-3D Graphics
+--Border
+--Highlight
+-Content
+--Center Content
+---Possible Image
+---Possible Text
+---Possible 3D Model
+---Other
+--Side Content
+---Live 'The important Data'
+----Max
+----Current
+----Min
+---Possible Top Content
+----Top Content Content
