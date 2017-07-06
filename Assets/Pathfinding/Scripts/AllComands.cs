@@ -14,6 +14,8 @@ public class AllComands : MonoBehaviour, ISpeechHandler {
         InputManager.Instance.AddGlobalListener(gameObject);
 	}
 
+
+    //Can use this function to display an aribtrary string to the user.
     public void TextLog(string text)
     {
         GetComponent<TextMesh>().text = text;

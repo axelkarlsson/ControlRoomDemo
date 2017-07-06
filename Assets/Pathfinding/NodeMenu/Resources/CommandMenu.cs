@@ -15,19 +15,19 @@ public class CommandMenu : MonoBehaviour {
         GameObject secondCommand = Instantiate(prefabCommand, transform);
         secondCommand.GetComponent<MenuCommandLink>().methodName = "DeleteNodeCommand";
         secondCommand.GetComponentInChildren<TextMesh>().text = "Delete";
-        secondCommand.transform.position += new Vector3(0, 0.04f, 0);
+        secondCommand.transform.position += new Vector3(0, 0.08f, 0);
         GameObject thirdCommand = Instantiate(prefabCommand, transform);
         thirdCommand.GetComponent<MenuCommandLink>().methodName = "LineNeighboursCommand";
         thirdCommand.GetComponentInChildren<TextMesh>().text = "Lines";
-        thirdCommand.transform.position += new Vector3(0, 0.08f, 0);
+        thirdCommand.transform.position += new Vector3(0, 0.16f, 0);
         GameObject fourthCommand = Instantiate(prefabCommand, transform);
         fourthCommand.GetComponent<MenuCommandLink>().methodName = "ToggleModeCommand";
         fourthCommand.GetComponentInChildren<TextMesh>().text = "Toggle";
-        fourthCommand.transform.position += new Vector3(0, 0.12f, 0);
+        fourthCommand.transform.position += new Vector3(0, -0.16f, 0);
         GameObject fifthCommand = Instantiate(prefabCommand, transform);
         fifthCommand.GetComponent<MenuCommandLink>().methodName = "ShowNavigationMenuCommand";
         fifthCommand.GetComponentInChildren<TextMesh>().text = "Navigation";
-        fifthCommand.transform.position += new Vector3(0, 0.16f, 0);
+        fifthCommand.transform.position += new Vector3(0, -0.08f, 0);
     }
 	
 	// Update is called once per frame
