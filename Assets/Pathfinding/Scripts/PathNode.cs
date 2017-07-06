@@ -144,9 +144,10 @@ public class PathNode : MonoBehaviour
     //Turn on or off the meshrenderer and meshcollider for the node
     public void ShowNode(bool active)
     {
-        GetComponentInChildren<MeshRenderer>().enabled = active;
+        MeshRenderer child = GetComponentInChildren<MeshRenderer>();
+        child.enabled = active;
         //Layer 0 is default, layer 2 has no collision
-        gameObject.layer = active ? 0 : 2;
+        child.gameObject.layer = active ? 0 : 2;
     }
 
 
@@ -156,6 +157,7 @@ public class PathNode : MonoBehaviour
         PathFinder finder = GetComponentInParent<PathFinder>();
 
         GameObject oldObject = finder.activeObject;
+
         finder.activeObject = finder.activeObject == gameObject ? null : gameObject;
         if(oldObject != gameObject && oldObject != null)
         {

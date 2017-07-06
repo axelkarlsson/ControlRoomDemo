@@ -57,7 +57,6 @@ namespace HoloToolkit.Unity.InputModule
 
             if (WorldAnchorManager.Instance != null)
             {
-                SavedAnchorFriendlyName = gameObject.GetInstanceID().ToString();
                 // If we are not starting out with actively placing the object, give it a World Anchor
                 if (!IsBeingPlaced)
                 {

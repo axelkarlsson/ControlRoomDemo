@@ -13,10 +13,17 @@ public class AllComands : MonoBehaviour, ISpeechHandler {
     void Start () {
         InputManager.Instance.AddGlobalListener(gameObject);
 	}
+
+    public void TextLog(string text)
+    {
+        GetComponent<TextMesh>().text = text;
+        waitFrames = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if(waitFrames > commandDisplayTime)
+        
+        if(waitFrames > commandDisplayTime * 2)
         {
             GetComponent<TextMesh>().text = "";
         }
@@ -24,6 +31,7 @@ public class AllComands : MonoBehaviour, ISpeechHandler {
         {
             waitFrames++;
         }
+        
 
 	}
 

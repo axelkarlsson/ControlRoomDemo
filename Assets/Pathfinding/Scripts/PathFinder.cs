@@ -77,6 +77,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
                         //Todo
                         //Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
+                        //upcoming.GetComponent<PathFinder>();
                         
                     }
                 }
@@ -120,6 +121,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         PathNode newPathNode = newNode.GetComponent<PathNode>();
         newNode.name = "Node " + nodeId;
         nodeId++;
+
 
         //TMP
         destinationNodes.Add(newPathNode);
