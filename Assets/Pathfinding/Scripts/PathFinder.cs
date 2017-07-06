@@ -31,6 +31,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     private int updateCount = 0;
     private int nodeId;
     private PathNode cameraNode;
+    private GameObject commandMenu;
 
 
     // Use this for initialization
@@ -46,6 +47,9 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         newNode.name = "Node " + nodeId;
         nodeId++;
         newNode.GetComponentInChildren<TapToPlaceNode>().IsBeingPlaced = false;
+
+        //Find the command menu
+        commandMenu = GameObject.FindGameObjectWithTag("CommandMenu");
         
     }
 
@@ -76,7 +80,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
-
+                        commandMenu.SetActive(true);
                         //Todo
                         //Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
                         //upcoming.GetComponent<PathFinder>();
@@ -93,6 +97,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
     }
 
+
+    //Starts navigation from camera position to selected node
     public void StartNavigation(PathNode destination)
     {
         if (!editMode)
@@ -103,7 +109,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             UpdateNode(cameraNode);
             //Set node layers to 2 to disable collision
             SetNodeLayer(2);
-
+            commandMenu.SetActive(false);
             FindPath(cameraNode, destination);
         }
     }
@@ -408,6 +414,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Show the navigation menu
     public void ShowNavigationMenuCommand()
     {
+        commandMenu.SetActive(!commandMenu.activeSelf);
         if (!editMode)
         {
             GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();

@@ -83,7 +83,10 @@ public class PathNode : MonoBehaviour
         costSoFar = float.PositiveInfinity;
         if (!cameraNode)
         {
-            GetComponentInChildren<MeshRenderer>().enabled = false;
+            if (GetComponentInChildren<MeshRenderer>() != null)
+            {
+                GetComponentInChildren<MeshRenderer>().enabled = false;
+            }
         }
     }
 

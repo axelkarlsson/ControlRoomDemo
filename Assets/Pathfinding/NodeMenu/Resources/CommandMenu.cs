@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommandMenu : MonoBehaviour {
+public class CommandMenu : MonoBehaviour  {
 
     public GameObject prefabCommand;
 

@@ -18,6 +18,8 @@ TagManager:
   - NodeMenu
   - TempLine
   - CommandDisplayer
+  - CommandMenu
+  - FactoryObject
   layers:
   - Default
   - TransparentFX
