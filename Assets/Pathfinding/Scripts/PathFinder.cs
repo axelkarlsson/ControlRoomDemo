@@ -76,7 +76,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     {
 
                         //Todo
-                        GameObject.Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
+                        //Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
                         
                     }
                 }
