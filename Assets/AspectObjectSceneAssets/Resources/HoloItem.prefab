@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 136408971866943228}
   - component: {fileID: 23879036100454786}
   - component: {fileID: 114013493750676974}
-  - component: {fileID: 114628655693523844}
+  - component: {fileID: 114587616345975132}
   m_Layer: 0
   m_Name: MoveButton
   m_TagString: Untagged
@@ -846,7 +846,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Cur: 50'
---- !u!114 &114628655693523844
+--- !u!114 &114587616345975132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -854,14 +854,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420549384536548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
+  m_Script: {fileID: 11500000, guid: b3531d71e0dd3bd4694bfd7a37420d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultGazeDistance: 2
-  SavedAnchorFriendlyName: SavedAnchorFriendlyName
   PlaceParentOnTap: 1
-  ParentGameObjectToPlace: {fileID: 1011977698828056}
-  IsBeingPlaced: 0
+  ParentGameObjectToPlace: {fileID: 0}
+  IsBeingPlaced: 1
 --- !u!114 &114647179935510362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -919,7 +918,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1011977698828056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac9042c44afc364fbd0f1afc35e72b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a6418fff0016434e88dd87ac324bb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AspectNames: []
