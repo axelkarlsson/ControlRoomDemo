@@ -14,6 +14,9 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     [Tooltip("The prefab of a node used in PathFinding.")]
     public GameObject prefabNode;
 
+    [Tooltip("The prefab of a generic object to place in the world")]
+    public GameObject prefabObject;
+
     [Tooltip("The prefab of a line renderer for showing which nodes are connected.")]
     public GameObject prefabLineRenderer;
 
@@ -64,10 +67,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             cameraPos.y -= 0.8f;
             //Move cameranode to camera position
             cameraNode.transform.position = cameraPos;
-            //Raycast to nearby nodes to see where you can travel to
-            /*
-            UpdateNode(cameraNode);
-            */
+          
             updateCount = 0;
 
 
@@ -105,7 +105,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         {
             //Set node layers to 0 to enable collision so that camera can look for neihbours
             SetNodeLayer(0);
-
             UpdateNode(cameraNode);
             //Set node layers to 2 to disable collision
             SetNodeLayer(2);
@@ -117,20 +116,18 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Resets all nodes in preparation to find a new path
     public void ResetNodes()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        foreach(PathNode node in GetChildNodes())
         {
-            PathNode test = transform.GetChild(i).gameObject.GetComponent<PathNode>();
-            test.ResetNode();
+            node.ResetNode();
         }
     }
-
  
     //Creates a new node to be placed. Returns null if an element is being moved
-    public GameObject CreateNode()
+    public void CreateNode()
     {
            
         //Don't do anything if another node is being placed
-        if (IsChildBeingPlaced()) { return null; }
+        if (IsChildBeingPlaced()) { return; }
 
         GameObject newNode = Instantiate(prefabNode, transform);
         PathNode newPathNode = newNode.GetComponent<PathNode>();
@@ -140,9 +137,20 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
         //TMP
         destinationNodes.Add(newPathNode);
-        //TMP
 
-        return newNode;
+    }
+
+    //Creates a new factory object to be placed
+    public void CreateObject()
+    {
+        //Do not create object if child is being placed
+        if (IsChildBeingPlaced()) { return; }
+
+        GameObject newObject = Instantiate(prefabObject, transform);
+        PathNode newPathNode = newObject.GetComponent<PathNode>();
+        newObject.name = "TestObjectNameIDGoesHere";
+        destinationNodes.Add(newPathNode);
+
     }
 
     //Returns if any child nodes are currently being moved
@@ -157,11 +165,13 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         return false;
     }
 
+    //Returns all the childs PathNode components
     public PathNode[] GetChildNodes()
     {
         return GetComponentsInChildren<PathNode>();
     }
 
+    //Change the layer of all childnodes that have PathNodes attached. Use 2 to ignore raycasting and 0 for default.
     public void SetNodeLayer(int layer)
     {
         foreach(PathNode node in GetChildNodes())
@@ -281,7 +291,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     }
 
     //Shows line betweens nodes that are neighbours
-    //I am very proud that this worked on the first try!
     public void DrawLines()
     {
         PathNode[] childNodes = GetChildNodes();
@@ -302,7 +311,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         }
     }
 
-    //Shows lines between one node and the rest
+    //Shows lines between one node and it's neighbours
     public void DrawLines(PathNode node)
     {
         foreach(PathNode otherNode in node.neighbours)
@@ -355,6 +364,15 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         if (editMode)
         {
             CreateNode();
+        }
+    }
+
+    //Creates a new object
+    public void CreateObjectCommand()
+    {
+        if (editMode)
+        {
+            CreateObject();
         }
     }
 

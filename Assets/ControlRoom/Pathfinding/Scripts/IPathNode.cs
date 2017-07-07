@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : MonoBehaviour {
+public class IPathNode : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
