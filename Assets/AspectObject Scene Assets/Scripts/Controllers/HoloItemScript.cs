@@ -10,6 +10,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
 {
     [Tooltip("A list of all associated Aspects displayable in the enviroment")]
     public List<string> AspectNames = new List<string>();
+    GameObject AspectMenu;
     Vector3 Scaler = new Vector3(0.2f, 0.2f, 0.2f);
     private void Awake()
     {
@@ -54,7 +55,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
         float ItemHeight = 0;
         float LengthLimit = 600f;
         float HeightLimit = 100f;
-        GameObject AspectMenu = Instantiate(Resources.Load("Aspect_Menu")) as GameObject; // The Associated Aspect menu 
+        AspectMenu = Instantiate(Resources.Load("Aspect_Menu")) as GameObject; // The Associated Aspect menu 
         AspectMenu.transform.SetParent(transform, false);
         AspectMenu.name = "Aspect_Menu";
 
@@ -112,6 +113,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
 
             }
         }
+        AspectMenu.SetActive(false);
     }
     void AlignItem(GameObject g, float N_Col, float N_row, float Cpos, float Rpos, float Item_Height, float Item_Length)
     {
@@ -141,9 +143,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
     }
     public void OnInputUp(InputEventData eventData)
     {
-            GameObject g = transform.Find("Aspect_Menu").gameObject;
-            g.SetActive(!g.activeSelf);
-
+            AspectMenu.SetActive(!AspectMenu.activeSelf);
     }
     public void OnInputDown(InputEventData eventData)
     {
