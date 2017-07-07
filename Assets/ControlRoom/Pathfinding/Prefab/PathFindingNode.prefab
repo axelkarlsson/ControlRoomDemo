@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114149475227041714}
   - component: {fileID: 64809110824271606}
   - component: {fileID: 114681340256862176}
-  - component: {fileID: 114994073776191002}
+  - component: {fileID: 114195726439817566}
   m_Layer: 0
   m_Name: Pathfinding_Arrow
   m_TagString: Untagged
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4724687658748570}
-  - component: {fileID: 114213713855971994}
+  - component: {fileID: 114060356246579236}
   m_Layer: 0
   m_Name: PathFindingNode
   m_TagString: Untagged
@@ -146,6 +146,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114060356246579236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753220877604948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d52531bf5cc69e4894c6248b7d19bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visited: 0
+  inActivePath: 0
+  costSoFar: 0
+  neighbours: []
+  cameFrom: {fileID: 0}
+  nodeName: 
 --- !u!114 &114149475227041714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,23 +183,21 @@ MonoBehaviour:
   SmoothPositionLerpRatio: 0.5
   SmoothRotationLerpRatio: 0.5
   SmoothScaleLerpRatio: 0.5
---- !u!114 &114213713855971994
+--- !u!114 &114195726439817566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1753220877604948}
+  m_GameObject: {fileID: 1085045576366190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499490bc0bde3924ea92db1ea9855a9a, type: 3}
+  m_Script: {fileID: 11500000, guid: d8052e27fd1b2994894ca137d07bdbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visited: 0
-  inActivePath: 0
-  costSoFar: 0
-  neighbours: []
-  cameFrom: {fileID: 0}
-  nodeName: 
+  DefaultGazeDistance: 2
+  PlaceParentOnTap: 0
+  ParentGameObjectToPlace: {fileID: 0}
+  IsBeingPlaced: 0
 --- !u!114 &114681340256862176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,21 +206,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085045576366190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13f47c7f0d13ad46a74a06c57051921, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a4bea211f04b994c9164b6efaa525ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114994073776191002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1085045576366190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3531d71e0dd3bd4694bfd7a37420d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultGazeDistance: 2
-  PlaceParentOnTap: 1
-  ParentGameObjectToPlace: {fileID: 0}
-  IsBeingPlaced: 1
