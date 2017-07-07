@@ -6,12 +6,13 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine.SceneManagement;
 using System;
 
-public class HoloItemScript : MonoBehaviour, IInputHandler
+public class HoloItemScript : MonoBehaviour, IInputClickHandler
 {
     [Tooltip("A list of all associated Aspects displayable in the enviroment")]
     public List<string> AspectNames = new List<string>();
     GameObject AspectMenu;
     Vector3 Scaler = new Vector3(0.2f, 0.2f, 0.2f);
+
     private void Awake()
     {
         //Initialize as Object representation 
@@ -19,6 +20,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
         AspectNames = PopulateAspectNames();
         CreateAspectMenu();
     }
+
     void Start()
     {
         transform.Find("Always Present Graphics").Find("Border").GetComponent<MeshRenderer>().enabled = true;
@@ -28,6 +30,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
         }
         transform.localScale = Scaler;
     } 
+
     void Update()
     {
         if (gameObject == GazeManager.Instance.HitObject)
@@ -39,6 +42,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
             gameObject.transform.Find("Always Present Graphics").Find("Highlight").GetComponent<Renderer>().enabled = false;
         }
     }
+
     List<string> PopulateAspectNames()
     {
         List<string> tempList = new List<string>();
@@ -48,6 +52,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
             }
         return tempList;
     }
+
     void CreateAspectMenu()
     {
         float ItemLength = 0;
@@ -114,6 +119,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
         }
         AspectMenu.SetActive(false);
     }
+
     void AlignItem(GameObject g, float N_Col, float N_row, float Cpos, float Rpos, float Item_Height, float Item_Length)
     {
         Vector3 CenterPoint = transform.root.position + new Vector3(0, 0, (-1 - N_Col * Item_Length) * transform.root.localScale.z);
@@ -130,6 +136,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
                         Mathf.Pow(transform.localScale.z, 2));
         g.transform.RotateAround(CenterPoint, Vector3.up, deg);
     }
+
     void ResizeItem(Transform t, float Item_Height, float Item_Length)
     {
         Vector3 BorderScale = new Vector3(Item_Length * 0.6f, Item_Height, Mathf.Min(Item_Height, Item_Length));
@@ -140,11 +147,9 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
         t.Find("Specific Content").Find("Center Content").Find("Center_Canvas").GetComponent<RectTransform>().sizeDelta = new Vector2(Item_Length, Item_Height);
         t.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<RectTransform>().sizeDelta = new Vector2(Item_Length, Item_Height);
     }
-    public void OnInputUp(InputEventData eventData)
+
+    public void OnInputClicked(InputClickedEventData eventData)
     {
             AspectMenu.SetActive(!AspectMenu.activeSelf);
-    }
-    public void OnInputDown(InputEventData eventData)
-    {
     }
 }
