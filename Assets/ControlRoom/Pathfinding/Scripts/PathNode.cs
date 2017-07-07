@@ -41,7 +41,10 @@ public class PathNode : MonoBehaviour
         {
             ShowNode(GetComponentInParent<PathFinder>().editMode);
         }
-        else { cameraNode = true; }
+        else { cameraNode = true;
+            GetComponentInChildren<MeshRenderer>().enabled = false;
+            GetComponentInChildren<MeshCollider>().gameObject.layer = 2;
+        }
     }
 
 
@@ -140,26 +143,39 @@ public class PathNode : MonoBehaviour
 
 
 
-    //Turn on or off the meshrenderer and meshcollider for the node
+    //Turn on or off the meshrenderer and meshcollider for the node. Used for the cameranode mostly
     public void ShowNode(bool active)
     {
-
-        //Turn of all renderers
-        Renderer[] rendList = GetComponentsInChildren<Renderer>();
-        foreach (Renderer rend in rendList)
+        if (!cameraNode)
         {
-            rend.enabled = active;
+            ActivateChildren(active);
         }
-
-        //Turn of all colliders
-        //Layer 0 is default, layer 2 has no collision
-        Collider[] colliderList = GetComponentsInChildren<Collider>();
-        foreach(Collider coll in colliderList)
+        else
         {
-            coll.gameObject.layer = active ? 0 : 2;
+            //Turn of all renderers
+            Renderer[] rendList = GetComponentsInChildren<Renderer>();
+            foreach (Renderer rend in rendList)
+            {
+                rend.enabled = active;
+            }
+
+            //Turn of all colliders
+            //Layer 0 is default, layer 2 has no collision
+            Collider[] colliderList = GetComponentsInChildren<Collider>();
+            foreach (Collider coll in colliderList)
+            {
+                coll.gameObject.layer = active ? 0 : 2;
+            }
         }
-        
-        
+       
+    }
+
+    public void ActivateChildren(bool state)
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(state);
+        }
     }
 
 
