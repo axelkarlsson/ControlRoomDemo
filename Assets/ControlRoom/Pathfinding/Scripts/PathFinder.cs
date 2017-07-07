@@ -45,7 +45,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
         //Create the node that follows the camera
         GameObject newNode = Instantiate(prefabNode, transform);            //Set this object as parent so the cameraNode is created in the same scene as the PathFinder
-        newNode.GetComponentInChildren<TapToPlaceNode>().IsBeingPlaced = false;
         newNode.transform.parent = null;                                    //Remove PathFinder as parent so it is not included when searching for other nodes
         cameraNode = newNode.GetComponent<PathNode>();
         cameraNode.ActivateChildren(true);

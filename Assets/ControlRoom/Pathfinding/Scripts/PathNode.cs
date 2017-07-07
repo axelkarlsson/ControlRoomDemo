@@ -104,11 +104,13 @@ public class PathNode : MonoBehaviour
     // Links two nodes together if there are no colliders between them. Returns true if they can be linked and adds the nodes as neihgbours.
     public bool TryLink(PathNode othernode)
     {
+        Debug.Log("Am I bad?");
         RaycastHit hitInfo;
         Vector3 origin = transform.position;
         Vector3 direction = (othernode.transform.position - transform.position).normalized;
         if (Physics.Raycast(origin, direction , out hitInfo, 20, GazeManager.Instance.RaycastLayerMasks[0]) && hitInfo.transform.gameObject.GetComponentInParent<PathNode>() == othernode)
         {
+            Debug.Log("Am I bad?");
             AddNeighbour(othernode);
             return true;
         }

@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4021393601956418}
-  - component: {fileID: 114138156295289570}
   - component: {fileID: 65324268253081906}
+  - component: {fileID: 114291059957183456}
   m_Layer: 0
   m_Name: MenuCommandLink
   m_TagString: Untagged
@@ -137,7 +137,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114138156295289570
+--- !u!114 &114291059957183456
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1031579318820114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658e667626fb14e438abf1fb4e73ae9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8eeb1b645a01b0c48b2db7b649e0f098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   methodName: 
