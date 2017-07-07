@@ -10,36 +10,23 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
 {
     [Tooltip("A list of all associated Aspects displayable in the enviroment")]
     public List<string> AspectNames = new List<string>();
-    public bool isRootObject;
     Vector3 Scaler = new Vector3(0.2f, 0.2f, 0.2f);
     private void Awake()
     {
-        
-        if (transform.parent == null || transform.parent.name == "Pathfinder")
-        {
-            //Initialize as Object representation 
-            isRootObject = true;
-            gameObject.AddComponent<PathNode>();
-            transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
-            AspectNames = PopulateAspectNames();
-            CreateAspectMenu();
-        }
-        else
-        {
-            //Intialize as Aspect Menu Item
-            isRootObject = false;
-        }
+        //Initialize as Object representation 
+        gameObject.AddComponent<PathNode>();
+        transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
+        AspectNames = PopulateAspectNames();
+        CreateAspectMenu();
     }
     void Start()
     {
+        transform.Find("Always Present Graphics").Find("Border").GetComponent<MeshRenderer>().enabled = true;
         if (!transform.Find("Specific Content").Find("Center Content").gameObject.activeInHierarchy)
         {
             transform.Find("Specific Content").Find("Center Content").gameObject.SetActive(true);
         }
-        if (isRootObject)
-        {
-            transform.localScale = Scaler;
-        }
+        transform.localScale = Scaler;
     } 
     void Update()
     {
@@ -73,7 +60,7 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
 
         foreach (string s in AspectNames)
         {
-            GameObject Temp = Instantiate(Resources.Load("HoloItem"), AspectMenu.transform) as GameObject;
+            GameObject Temp = Instantiate(Resources.Load("HoloItem_Menu"), AspectMenu.transform) as GameObject;
             Temp.name = s;
             Temp.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = s;
             Text tmp = Temp.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>();
@@ -125,10 +112,6 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
 
             }
         }
-
-
-
-
     }
     void AlignItem(GameObject g, float N_Col, float N_row, float Cpos, float Rpos, float Item_Height, float Item_Length)
     {
@@ -158,24 +141,9 @@ public class HoloItemScript : MonoBehaviour, IInputHandler
     }
     public void OnInputUp(InputEventData eventData)
     {
-        if (isRootObject)
-        {
             GameObject g = transform.Find("Aspect_Menu").gameObject;
             g.SetActive(!g.activeSelf);
-        }
-        else
-        { //Toggle Aspect Window
-            GameObject g = GameObject.Find(name + "_window");
-            if (g == null)
-            {
-                g = Instantiate(Resources.Load("Aspect_Window"), null) as GameObject;
-                g.name = name + "_window";
-            }
-            else
-            {
-                Destroy(g);
-            }
-        }
+
     }
     public void OnInputDown(InputEventData eventData)
     {
