@@ -108,48 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &157996046
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1227589857}
-    m_Modifications:
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cb874dd28bac015499977b7b07e05161, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &175205957
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,11 +245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &280767733 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4935819937240106, guid: cb874dd28bac015499977b7b07e05161,
-    type: 2}
-  m_PrefabInternal: {fileID: 157996046}
 --- !u!1 &411838740
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,53 +371,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1227589856
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1227589857}
-  - component: {fileID: 1227589860}
-  m_Layer: 0
-  m_Name: FactoryObject
-  m_TagString: FactoryObject
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1227589857
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1227589856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 280767733}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1227589860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1227589856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499490bc0bde3924ea92db1ea9855a9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visited: 0
-  inActivePath: 0
-  costSoFar: 0
-  neighbours: []
-  cameFrom: {fileID: 0}
-  nodeName: 
 --- !u!1001 &1297884820
 Prefab:
   m_ObjectHideFlags: 0
@@ -639,6 +545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 0}
   prefabNode: {fileID: 1753220877604948, guid: 7aad4cdac431e204ea21b8ab562b7e1c, type: 2}
+  prefabObject: {fileID: 1011977698828056, guid: d11b1e335d9a5f747bb3ad518b9a8d1d,
+    type: 2}
   prefabLineRenderer: {fileID: 1150463417943940, guid: fb408d45fb494524896cdf9155af8d68,
     type: 2}
   destinationNodes: []

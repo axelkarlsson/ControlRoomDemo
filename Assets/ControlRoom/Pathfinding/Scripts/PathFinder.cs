@@ -160,7 +160,8 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         PathNode[] children = GetChildNodes();
         foreach (PathNode node in children)
         {
-            if (node.GetComponentInChildren<TapToPlaceNode>().IsBeingPlaced) { return true; }
+            TapToPlaceNode placer = node.GetComponentInChildren<TapToPlaceNode>();
+            if ((placer != null) && (placer.IsBeingPlaced)) { return true; }
         }
         return false;
     }
