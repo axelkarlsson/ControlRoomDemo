@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4439856689402644}
-  - component: {fileID: 114977536663284758}
   m_Layer: 0
   m_Name: Aspect_Menu
   m_TagString: Untagged
@@ -40,16 +39,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114977536663284758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408331653416090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3454cc6c46be14bacac948c42c4fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ML: 0
-  MH: 0

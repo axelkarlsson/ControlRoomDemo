@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class TempPlaneController : MonoBehaviour {
+public class AspectWindowController : MonoBehaviour {
 
     TapToPlace Placer;
     // Use this for initialization
     void Start () {
-        Placer = GetComponent<TapToPlace>();
+        Placer = GetComponentInChildren<TapToPlace>();
         Placer.OnInputClicked(eventData: null);
     }
 	

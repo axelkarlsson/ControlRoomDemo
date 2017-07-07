@@ -5,6 +5,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
 public class CloseButtonFunction : MonoBehaviour, IInputHandler {
+
     public void OnInputDown(InputEventData eventData)
     {
         Destroy(transform.root.gameObject);

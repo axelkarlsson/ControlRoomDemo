@@ -1,5 +1,4 @@
-Object Item & Aspect Menu Item
--GazeTarget (Invisible box that GazeManager detects)
+HoloItem (Used for both Object and Aspect Item)
 -3D Graphics
 --Border
 --Highlight
