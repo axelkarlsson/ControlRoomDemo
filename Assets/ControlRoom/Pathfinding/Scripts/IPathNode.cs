@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IPathNode : MonoBehaviour {
+//Interface that should be implemented by all classes that can be used as nodes in Pathfinding
+public class IPathNode {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public bool visited;
+    public bool inActivePath;
+    public float costSoFar;
+    public List<IPathNode> neighbours;
+    public PathNode cameFrom;
+    public IPathNode node;
 }
