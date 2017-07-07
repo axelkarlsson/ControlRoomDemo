@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4110211353674114}
   - component: {fileID: 65082412306182264}
-  - component: {fileID: 114774868155680828}
+  - component: {fileID: 114989726641203764}
   m_Layer: 0
   m_Name: HoloItem_Menu
   m_TagString: Untagged
@@ -416,7 +416,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7bcdc3c5c77fdc64d8709cb682dee18d, type: 2}
+  - {fileID: 2100000, guid: 405de2c2a36d6974195d3f3474c8695f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -448,7 +448,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3d5e2477ed69ab7448be592a83f6f224, type: 2}
+  - {fileID: 2100000, guid: a5e055aea4af2414cb5bc7b4ef6d2475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -512,14 +512,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986200795887284}
-  m_Mesh: {fileID: 4300000, guid: 6341148b44c9d754a8d98c26956527d1, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8ab5dfe4b3687e647b16f096dde2dd1d, type: 3}
 --- !u!33 &33928063141257116
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674669106448974}
-  m_Mesh: {fileID: 4300000, guid: 93df95ddbb8f1144bbe673700aa3cbba, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 20428614823642748b2a6309f977e8e6, type: 3}
 --- !u!65 &65082412306182264
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -739,18 +739,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Cur: 50'
---- !u!114 &114774868155680828
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1720570105147954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6418fff0016434e88dd87ac324bb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AspectNames: []
 --- !u!114 &114863872743902822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,6 +782,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114989726641203764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720570105147954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35fc84e46a26884d962ab2cf7895974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222285030381261940
 CanvasRenderer:
   m_ObjectHideFlags: 1

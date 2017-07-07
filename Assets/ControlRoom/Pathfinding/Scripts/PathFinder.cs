@@ -47,6 +47,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         GameObject newNode = Instantiate(prefabNode, transform);            //Set this object as parent so the cameraNode is created in the same scene as the PathFinder
         newNode.transform.parent = null;                                    //Remove PathFinder as parent so it is not included when searching for other nodes
         cameraNode = newNode.GetComponent<PathNode>();
+        cameraNode.ActivateChildren(true);
         newNode.name = "Node " + nodeId;
         nodeId++;
         newNode.GetComponentInChildren<TapToPlaceNode>().IsBeingPlaced = false;
@@ -97,17 +98,23 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
     }
 
-
     //Starts navigation from camera position to selected node
     public void StartNavigation(PathNode destination)
     {
         if (!editMode)
         {
             //Set node layers to 0 to enable collision so that camera can look for neihbours
-            SetNodeLayer(0);
+            foreach(var node in GetChildNodes())
+            {
+                node.ActivateChildren(true);
+            }
             UpdateNode(cameraNode);
             //Set node layers to 2 to disable collision
-            SetNodeLayer(2);
+
+            foreach (var node in GetChildNodes())
+            {
+                node.ActivateChildren(true);
+            }
             commandMenu.SetActive(false);
             FindPath(cameraNode, destination);
         }
@@ -133,11 +140,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         PathNode newPathNode = newNode.GetComponent<PathNode>();
         newNode.name = "Node " + nodeId;
         nodeId++;
-
-
-        //TMP
-        destinationNodes.Add(newPathNode);
-
     }
 
     //Creates a new factory object to be placed
@@ -177,7 +179,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         foreach(PathNode node in GetChildNodes())
         {
-            node.GetComponentInChildren<MeshRenderer>().gameObject.layer = layer;
+            node.GetComponentInChildren<Collider>().gameObject.layer = layer;
         }
     }
 

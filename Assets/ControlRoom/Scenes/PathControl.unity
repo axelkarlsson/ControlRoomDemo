@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 0}
   prefabNode: {fileID: 1753220877604948, guid: 7aad4cdac431e204ea21b8ab562b7e1c, type: 2}
-  prefabObject: {fileID: 1011977698828056, guid: d11b1e335d9a5f747bb3ad518b9a8d1d,
+  prefabObject: {fileID: 1011977698828056, guid: c6033c2ff2df3314f81f4ce8cd663903,
     type: 2}
   prefabLineRenderer: {fileID: 1150463417943940, guid: fb408d45fb494524896cdf9155af8d68,
     type: 2}
