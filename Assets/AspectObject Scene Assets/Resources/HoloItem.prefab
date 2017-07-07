@@ -19,8 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4919890455246854}
-  - component: {fileID: 114270317259090518}
   - component: {fileID: 65132969095484122}
+  - component: {fileID: 114816504630991058}
+  - component: {fileID: 114007919190022148}
   m_Layer: 0
   m_Name: HoloItem
   m_TagString: Untagged
@@ -549,6 +550,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114007919190022148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011977698828056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499490bc0bde3924ea92db1ea9855a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visited: 0
+  inActivePath: 0
+  costSoFar: 0
+  neighbours: []
+  cameFrom: {fileID: 0}
+  nodeName: 
 --- !u!114 &114016024391785860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,19 +636,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114270317259090518
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1011977698828056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6cf184bc8347c44a70ebe3977e9b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AspectNames: []
-  isRootObject: 0
 --- !u!114 &114451353199424796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,6 +718,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114816504630991058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011977698828056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac9042c44afc364fbd0f1afc35e72b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AspectNames: []
 --- !u!114 &114822798914494262
 MonoBehaviour:
   m_ObjectHideFlags: 1

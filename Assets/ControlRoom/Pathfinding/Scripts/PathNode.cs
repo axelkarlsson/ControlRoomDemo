@@ -39,8 +39,7 @@ public class PathNode : MonoBehaviour
     {
         if (GetComponentInParent<PathFinder>() != null)
         {
-            GetComponentInChildren<MeshRenderer>().enabled = GetComponentInParent<PathFinder>().editMode;
-            GetComponentInChildren<MeshCollider>().enabled = GetComponentInParent<PathFinder>().editMode;
+            ShowNode(GetComponentInParent<PathFinder>().editMode);
         }
         else { cameraNode = true; }
     }
@@ -61,7 +60,7 @@ public class PathNode : MonoBehaviour
     {
         if (!cameraNode)
         {
-            GetComponentInChildren<MeshRenderer>().enabled = true;
+            ShowNode(true);
             transform.LookAt(target.gameObject.transform.position);
         }
     }
@@ -70,7 +69,7 @@ public class PathNode : MonoBehaviour
     //Rotate the destination node to look at the ground
     public void RotateEndPoint()
     {
-        GetComponentInChildren<MeshRenderer>().enabled = true;
+        ShowNode(true);
         transform.LookAt(transform.position + Vector3.down);
     }
 
@@ -83,10 +82,7 @@ public class PathNode : MonoBehaviour
         costSoFar = float.PositiveInfinity;
         if (!cameraNode)
         {
-            if (GetComponentInChildren<MeshRenderer>() != null)
-            {
-                GetComponentInChildren<MeshRenderer>().enabled = false;
-            }
+            ShowNode(false);
         }
     }
 
@@ -147,10 +143,23 @@ public class PathNode : MonoBehaviour
     //Turn on or off the meshrenderer and meshcollider for the node
     public void ShowNode(bool active)
     {
-        MeshRenderer child = GetComponentInChildren<MeshRenderer>();
-        child.enabled = active;
+
+        //Turn of all renderers
+        Renderer[] rendList = GetComponentsInChildren<Renderer>();
+        foreach (Renderer rend in rendList)
+        {
+            rend.enabled = active;
+        }
+
+        //Turn of all colliders
         //Layer 0 is default, layer 2 has no collision
-        child.gameObject.layer = active ? 0 : 2;
+        Collider[] colliderList = GetComponentsInChildren<Collider>();
+        foreach(Collider coll in colliderList)
+        {
+            coll.gameObject.layer = active ? 0 : 2;
+        }
+        
+        
     }
 
 
