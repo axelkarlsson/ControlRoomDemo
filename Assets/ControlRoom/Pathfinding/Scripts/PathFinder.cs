@@ -36,6 +36,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     private PathNode cameraNode;
     private GameObject commandMenu;
 
+    public bool commandMenuActive
+    {
+        set
+        {
+            commandMenu.SetActive(value);
+        }
+    }
+
 
     // Use this for initialization
     void Start()
@@ -54,12 +62,14 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
         //Find the command menu
         commandMenu = GameObject.FindGameObjectWithTag("CommandMenu");
+        commandMenuActive = true;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         updateCount++;
         if (updateCount > frameUpdateInterval)
         {
@@ -81,11 +91,11 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
-                        commandMenu.SetActive(true);
+                        commandMenuActive = true;
                         //Todo
                         //Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
                         //upcoming.GetComponent<PathFinder>();
-                        
+
                     }
                 }
                 else
@@ -115,7 +125,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             {
                 node.ActivateChildren(true);
             }
-            commandMenu.SetActive(false);
+            commandMenuActive = false;
             FindPath(cameraNode, destination);
         }
     }
@@ -136,6 +146,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         //Don't do anything if another node is being placed
         if (IsChildBeingPlaced()) { return; }
 
+
         GameObject newNode = Instantiate(prefabNode, transform);
         PathNode newPathNode = newNode.GetComponent<PathNode>();
         newNode.name = "Node " + nodeId;
@@ -147,6 +158,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         //Do not create object if child is being placed
         if (IsChildBeingPlaced()) { return; }
+
 
         GameObject newObject = Instantiate(prefabObject, transform);
         PathNode newPathNode = newObject.GetComponent<PathNode>();
@@ -203,6 +215,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             RemoveLines();
             DrawLines();
         }
+
     }
 
     //Removes the current active node
@@ -435,7 +448,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     //Show the navigation menu
     public void ShowNavigationMenuCommand()
     {
-        commandMenu.SetActive(!commandMenu.activeSelf);
         if (!editMode)
         {
             GameObject.FindGameObjectWithTag("NodeMenu").GetComponent<NodeItemPlacer>().ShowMenu();

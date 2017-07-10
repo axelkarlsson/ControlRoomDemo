@@ -104,6 +104,10 @@ namespace HoloToolkit.Unity.InputModule
             {
                 SetLayerRecursively(transform, useDefaultLayer: false);
                 InputManager.Instance.AddGlobalListener(gameObject);
+                if (GetComponentInParent<PathNode>() != null)
+                {
+                    GetComponentInParent<PathFinder>().commandMenuActive = false;
+                }
 
             }
             else
@@ -115,6 +119,7 @@ namespace HoloToolkit.Unity.InputModule
                 if(GetComponentInParent<PathNode>() != null)
                 {
                     GetComponentInParent<PathNode>().UpdateNeighbours();
+                    GetComponentInParent<PathFinder>().commandMenuActive = true;
                 }
 
             }
