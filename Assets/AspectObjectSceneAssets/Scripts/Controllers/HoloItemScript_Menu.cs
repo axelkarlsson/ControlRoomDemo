@@ -6,7 +6,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine.SceneManagement;
 using System;
 
-public class HoloItemScript_Menu: MonoBehaviour, IInputHandler
+public class HoloItemScript_Menu: MonoBehaviour, IInputClickHandler
 {
     void Start()
     {
@@ -34,13 +34,14 @@ public class HoloItemScript_Menu: MonoBehaviour, IInputHandler
         {
             g = Instantiate(Resources.Load("Aspect_Window"), null) as GameObject;
             g.name = name + "_window";
+
         }
         else
         {
             Destroy(g);
         }
     }
-    public void OnInputDown(InputEventData eventData)
+    public void OnInputClicked(InputClickedEventData eventData)
     {
     }
 }
