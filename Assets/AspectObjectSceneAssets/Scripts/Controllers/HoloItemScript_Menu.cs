@@ -26,7 +26,8 @@ public class HoloItemScript_Menu: MonoBehaviour, IInputClickHandler
             gameObject.transform.Find("Always Present Graphics").Find("Highlight").GetComponent<Renderer>().enabled = false;
         }
     }
-    public void OnInputUp(InputEventData eventData)
+
+    public void OnInputClicked(InputClickedEventData eventData)
     {
         //Toggle Aspect Window
         GameObject g = GameObject.Find(name + "_window");
@@ -40,8 +41,5 @@ public class HoloItemScript_Menu: MonoBehaviour, IInputClickHandler
         {
             Destroy(g);
         }
-    }
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
     }
 }

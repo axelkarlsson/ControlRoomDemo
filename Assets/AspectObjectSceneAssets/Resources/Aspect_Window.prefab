@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4113420057679484}
-  - component: {fileID: 114917340737662584}
+  - component: {fileID: 114354927243720268}
   m_Layer: 0
   m_Name: Aspect_Window
   m_TagString: Untagged
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33275127781099510}
   - component: {fileID: 136452351975209062}
   - component: {fileID: 23880469246751012}
-  - component: {fileID: 114700300543498184}
+  - component: {fileID: 114388023577781332}
   m_Layer: 0
   m_Name: CloseButton
   m_TagString: Untagged
@@ -216,7 +216,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9ef3663a03d05ab41919f794e87acafd, type: 2}
+  - {fileID: 2100000, guid: a5e055aea4af2414cb5bc7b4ef6d2475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9ef3663a03d05ab41919f794e87acafd, type: 2}
+  - {fileID: 2100000, guid: a5e055aea4af2414cb5bc7b4ef6d2475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9ef3663a03d05ab41919f794e87acafd, type: 2}
+  - {fileID: 2100000, guid: a5e055aea4af2414cb5bc7b4ef6d2475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -472,6 +472,28 @@ MonoBehaviour:
   SmoothPositionLerpRatio: 0.5
   SmoothRotationLerpRatio: 0.5
   SmoothScaleLerpRatio: 0.5
+--- !u!114 &114354927243720268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340204823919562}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2feaef60af2c944ab0bb4ec6afc6522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114388023577781332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477820053728188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93d7e5dd51534245bb41c01ef35cd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114688255784745944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,18 +509,7 @@ MonoBehaviour:
   SavedAnchorFriendlyName: SavedAnchorFriendlyName
   PlaceParentOnTap: 1
   ParentGameObjectToPlace: {fileID: 1340204823919562}
-  IsBeingPlaced: 0
---- !u!114 &114700300543498184
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477820053728188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e598d730e9b244a89621083b901614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  IsBeingPlaced: 1
 --- !u!114 &114823030797436686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,17 +530,6 @@ MonoBehaviour:
   SmoothPositionLerpRatio: 0.5
   SmoothRotationLerpRatio: 0.5
   SmoothScaleLerpRatio: 0.5
---- !u!114 &114917340737662584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1340204823919562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 314fd9fa2feea304080b16a3fe584345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136452351975209062
 CapsuleCollider:
   m_ObjectHideFlags: 1

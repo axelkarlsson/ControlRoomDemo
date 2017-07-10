@@ -6,18 +6,35 @@ using System;
 
 public class MenuCommandLink : MonoBehaviour, IInputClickHandler
 {
+    private TextMesh textMesh;
+    private Color originalColor;
+
     public string methodName;
+
+    public void Awake()
+    {
+        textMesh = GetComponentInChildren<TextMesh>();
+        originalColor = textMesh.color;
+    }
     // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        IsHighlighted = GazeManager.Instance.HitObject == this.gameObject;
     }
+
+    private bool IsHighlighted
+    {
+        set
+        {
+            textMesh.color = value ? Color.yellow : originalColor;
+        }
+    }
+
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
