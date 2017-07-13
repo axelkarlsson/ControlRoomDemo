@@ -92,6 +92,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                     if(currentPath.Count == 0)
                     {
                         commandMenuActive = true;
+                        Application.OpenURL("abbholotest://This is bananas");
                         //Todo
                         //Find("AspectMenuObjectRoot").SendMessage("RandomFunctionName", upcoming);
                         //upcoming.GetComponent<PathFinder>();
