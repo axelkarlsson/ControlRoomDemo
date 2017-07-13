@@ -11,10 +11,11 @@ public class PlaceInitialObject : MonoBehaviour {
     int Frames = 0;
     GameObject g;
     void Start () {
-
-        g = Instantiate(Resources.Load("ObjectName") as GameObject,null);
-        g.name = "Demo Object";
-
+        ObjectInfo o = new ObjectInfo("Demo Object", 
+                                       new Vector3(0, 0, 2), 
+                                       new Vector3(0.2f, 0.2f, 0.2f), 
+                                       Quaternion.identity, 
+                                       Resources.Load("HoloItem") as GameObject);
     }
 	
 	// Update is called once per frame
@@ -33,5 +34,14 @@ public class PlaceInitialObject : MonoBehaviour {
     {
         g.transform.position = Pos;
         g.transform.LookAt(hitInfo.normal);
+    }
+    public void CreateObjects(List<ObjectInfo> OIs)
+    {
+        foreach (ObjectInfo o in OIs)
+        {
+            GameObject g = Instantiate(o.toLoad, null);
+            g.name = o.name;
+            g.GetComponent<HoloItemScript>().InitializeAt(o);
+        }
     }
 }

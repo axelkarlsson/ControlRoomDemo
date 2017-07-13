@@ -152,4 +152,11 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler
     {
             AspectMenu.SetActive(!AspectMenu.activeSelf);
     }
+
+    public void InitializeAt(ObjectInfo o)
+    {
+        transform.position = o.Position;
+        transform.rotation = o.Rotation;
+        transform.localScale = o.Scale;
+    }
 }
