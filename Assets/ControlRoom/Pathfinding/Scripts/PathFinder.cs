@@ -118,7 +118,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
         opt.TargetApplicationPackageFamilyName = "2e60fe6a-1684-4052-b8c6-bf1ac7a95844_mv85jss3rj790";
         ValueSet inputData = new ValueSet();
         inputData["Test"] = "We are in the holoworld yo";
-        Windows.System.LaunchUriResult success = await Windows.System.Launcher.LaunchUriForResultsAsync(new Uri("holoabbtest://"), opt, inputData);
+        Windows.System.LaunchUriResult success = await Windows.System.Launcher.LaunchUriForResultsAsync(new Uri("aspectmenu://"), opt, inputData);
     }
 #endif
 
