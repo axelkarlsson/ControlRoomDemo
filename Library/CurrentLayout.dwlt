@@ -91,10 +91,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 683, y: 713}
-  m_MaxSize: {x: 14004, y: 18063}
+  m_MinSize: {x: 681, y: 713}
+  m_MaxSize: {x: 14002, y: 18063}
   vertical: 0
-  controlID: 169
+  controlID: 133
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,18 +404,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/ControlRoom/Pathfinding/Scripts
+    - Assets/ControlRoom/Pathfinding/Prefab
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/ControlRoom/Pathfinding/Scripts
+  - Assets/ControlRoom/Pathfinding/Prefab
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b0290000
-    m_LastClickedID: 10672
+    m_SelectedIDs: 622e0000
+    m_LastClickedID: 11874
     m_ExpandedIDs: 0000000068280000d42800000a2b0000822c00000e2d00002e2d0000302d0000282f0000762f0000882f0000963300009833000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000442d0000922e00004a2d0000f26d00007e280000ccb0f8ff5e2d0000542b0000ac2b0000000000006cc3feffe2290000c02d0000aa2c0000d22900008c360000e22b0000382a0000b62d0000ba290000462b0000502f0000182b0000bc2a0000aa280000542f0000a02800004a2b0000c02a00001c2b0000cc2b0000742b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: defbffff00000000
+    m_ExpandedIDs: 78eaffff3cebffff8cedffffbaf2ffff7cf3ffffccf5ffffdefbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
