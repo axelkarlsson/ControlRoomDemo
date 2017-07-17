@@ -5,9 +5,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-#if NETFX_CORE
-using Windows.Foundation.Collections;
-#endif
+
 
 public class PathFinder : MonoBehaviour , ISpeechHandler
 {
@@ -46,6 +44,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
             commandMenu.SetActive(value);
         }
     }
+
 
 
     // Use this for initialization
@@ -91,17 +90,16 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
                 PathNode upcoming = currentPath.Pop();
                 if(upcoming.DistanceTo(cameraNode) < 2)
                 {
-                    upcoming.ResetNode();
                     if(currentPath.Count == 0)
                     {
-#if NETFX_CORE
-                        LaunchThing();
-#endif
+
                         commandMenuActive = true;
                     }
+                    else { upcoming.ResetNode(); }
                 }
                 else
                 {
+
                     currentPath.Push(upcoming);
                 }
             }
@@ -110,17 +108,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
     }
 
-#if NETFX_CORE
-    private async void LaunchThing()
-    {
-        Windows.System.LauncherOptions opt = new Windows.System.LauncherOptions();
-        opt.DisplayApplicationPicker = false;
-        opt.TargetApplicationPackageFamilyName = "2e60fe6a-1684-4052-b8c6-bf1ac7a95844_mv85jss3rj790";
-        ValueSet inputData = new ValueSet();
-        inputData["Test"] = "We are in the holoworld yo";
-        Windows.System.LaunchUriResult success = await Windows.System.Launcher.LaunchUriForResultsAsync(new Uri("holoabbtest://"), opt, inputData);
-    }
-#endif
+
 
     //Starts navigation from camera position to selected node
     public void StartNavigation(PathNode destination)
@@ -304,7 +292,7 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
 
             current.inActivePath = true;
             currentPath.Push(current);
-            current.RotateEndPoint();
+            current.RotateEndPoint(current.cameFrom);
             PathNode tmp;
 
             while (current != start)

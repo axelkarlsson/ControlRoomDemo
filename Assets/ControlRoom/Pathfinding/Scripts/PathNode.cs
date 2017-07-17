@@ -54,10 +54,12 @@ public class PathNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!cameraNode && inActivePath && !GetComponentInParent<PathFinder>().editMode)
         {
             transform.Rotate(Vector3.forward, 1f);
         }
+        */
     }
 
 
@@ -73,10 +75,11 @@ public class PathNode : MonoBehaviour
 
 
     //Rotate the destination node to look at the ground
-    public void RotateEndPoint()
+    public void RotateEndPoint(PathNode nextPoint)
     {
         ShowNode(true);
-        transform.LookAt(transform.position + Vector3.down);
+        transform.LookAt(nextPoint.transform.position);
+        transform.Rotate(0, 180, 0);
     }
 
 
@@ -177,7 +180,11 @@ public class PathNode : MonoBehaviour
     {
         for(int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(state);
+            if (GetComponent<HoloItemScript>() == null)
+            {
+                transform.GetChild(i).gameObject.SetActive(state);
+            }
+            else if (transform.GetChild(i).GetComponent<TapToPlaceNode>() != null) { transform.GetChild(i).gameObject.SetActive(state); }
         }
     }
 

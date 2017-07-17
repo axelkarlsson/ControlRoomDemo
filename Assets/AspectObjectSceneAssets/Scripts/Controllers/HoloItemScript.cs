@@ -5,20 +5,25 @@ using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine.SceneManagement;
 using System;
+#if NETFX_CORE
+using Windows.Foundation.Collections;
+#endif
 
-public class HoloItemScript : MonoBehaviour, IInputClickHandler
+public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 {
     [Tooltip("A list of all associated Aspects displayable in the enviroment")]
     public List<string> AspectNames = new List<string>();
     GameObject AspectMenu;
     Vector3 Scaler = new Vector3(0.2f, 0.2f, 0.2f);
 
+    private TouchScreenKeyboard board;
+
     private void Awake()
     {
         //Initialize as Object representation 
         transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
         AspectNames = PopulateAspectNames();
-        CreateAspectMenu();
+        //CreateAspectMenu();
     }
 
     void Start()
@@ -40,6 +45,13 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler
         else
         {
             gameObject.transform.Find("Always Present Graphics").Find("Highlight").GetComponent<Renderer>().enabled = false;
+        }
+
+        if(board != null && board.done)
+        {
+            gameObject.name = board.text;
+            transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
+            board = null;
         }
     }
 
@@ -150,8 +162,24 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-            AspectMenu.SetActive(!AspectMenu.activeSelf);
+            //AspectMenu.SetActive(!AspectMenu.activeSelf);
+
+#if NETFX_CORE
+                        LaunchThing();
+#endif
     }
+
+#if NETFX_CORE
+    private async void LaunchThing()
+    {
+        Windows.System.LauncherOptions opt = new Windows.System.LauncherOptions();
+        opt.DisplayApplicationPicker = false;
+        opt.TargetApplicationPackageFamilyName = "ef246e93-5873-4762-a7d9-865821b7fae8_mv85jss3rj790";
+        ValueSet inputData = new ValueSet();
+        inputData["ID"] = gameObject.name;
+        Windows.System.LaunchUriResult success = await Windows.System.Launcher.LaunchUriForResultsAsync(new Uri("holoaspect://"), opt, inputData);
+    }
+#endif
 
     public void InitializeAt(ObjectInfo o)
     {
@@ -159,4 +187,21 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler
         transform.rotation = o.Rotation;
         transform.localScale = o.Scale;
     }
+
+    public void OnHoldCanceled(HoldEventData eventData)
+    {
+        //Needed for interface
+    }
+
+    public void OnHoldCompleted(HoldEventData eventData)
+    {
+        //Needed for interface
+    }
+
+    public void OnHoldStarted(HoldEventData eventData)
+    {
+        //Needed for interface
+        board = new TouchScreenKeyboard("ID goes here", TouchScreenKeyboardType.Default, false, false, false , false, "Enter ID of object");
+    }
+
 }
