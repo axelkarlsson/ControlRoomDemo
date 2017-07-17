@@ -49,7 +49,10 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
         if(board != null && board.done)
         {
-            gameObject.name = board.text;
+            
+            string tmp;
+            tmp = board.text.Replace(' ', '_');
+            gameObject.name = tmp;
             transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
             board = null;
         }
