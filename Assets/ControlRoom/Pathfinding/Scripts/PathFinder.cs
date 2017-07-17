@@ -109,7 +109,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     }
 
 
-
     //Starts navigation from camera position to selected node
     public void StartNavigation(PathNode destination)
     {
