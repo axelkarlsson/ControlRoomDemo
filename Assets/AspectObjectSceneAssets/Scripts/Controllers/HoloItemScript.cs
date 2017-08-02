@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine.SceneManagement;
 using System;
+using HoloToolkit.UI.Keyboard;
 #if NETFX_CORE
 using Windows.Foundation.Collections;
 #endif
@@ -16,7 +17,6 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
     GameObject AspectMenu;
     Vector3 Scaler = new Vector3(0.2f, 0.2f, 0.2f);
 
-    private TouchScreenKeyboard board;
 
     private void Awake()
     {
@@ -45,16 +45,6 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
         else
         {
             gameObject.transform.Find("Always Present Graphics").Find("Highlight").GetComponent<Renderer>().enabled = false;
-        }
-
-        if(board != null && board.done)
-        {
-            
-            string tmp;
-            tmp = board.text.Replace(' ', '_');
-            gameObject.name = tmp;
-            transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
-            board = null;
         }
     }
 
@@ -165,7 +155,6 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-            //AspectMenu.SetActive(!AspectMenu.activeSelf);
 
 #if NETFX_CORE
                         LaunchThing();
@@ -203,8 +192,20 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
     public void OnHoldStarted(HoldEventData eventData)
     {
-        //Needed for interface
-        board = new TouchScreenKeyboard("ID goes here", TouchScreenKeyboardType.Default, false, false, false , false, "Enter ID of object");
+        //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
+        Keyboard.Instance.Close();
+        Keyboard.Instance.PresentKeyboard("Rename object");
+        Keyboard.Instance.RepositionKeyboard(Camera.main.transform.position + Camera.main.transform.forward * 2);
+        Keyboard.Instance.onTextSubmitted += this.Keyboard_onTextSubmitted;
     }
 
+    private void Keyboard_onTextSubmitted(object sender, EventArgs e)
+    {
+        string tmp;
+        var keyboard = sender as Keyboard;
+        tmp = keyboard.m_InputField.text.Replace(' ', '_');
+        gameObject.name = tmp;
+        transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
+        Keyboard.Instance.onTextSubmitted -= this.Keyboard_onTextSubmitted;
+    }
 }

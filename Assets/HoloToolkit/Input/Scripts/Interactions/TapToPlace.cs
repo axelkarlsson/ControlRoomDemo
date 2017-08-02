@@ -21,6 +21,9 @@ namespace HoloToolkit.Unity.InputModule
         [Tooltip("Distance from camera to keep the object while placing it.")]
         public float DefaultGazeDistance = 2.0f;
 
+        [Tooltip("Supply a friendly name for the anchor as the key name for the WorldAnchorStore.")]
+        public string SavedAnchorFriendlyName = "SavedAnchorFriendlyName";
+
         [Tooltip("Place parent on tap instead of current game object.")]
         public bool PlaceParentOnTap;
 
@@ -35,6 +38,9 @@ namespace HoloToolkit.Unity.InputModule
         [Tooltip("Setting this to true will enable the user to move and place the object in the scene without needing to tap on the object. Useful when you want to place an object immediately.")]
         public bool IsBeingPlaced;
 
+        [Tooltip("Setting this to true will allow this behavior to control the DrawMesh property on the spatial mapping.")]
+        public bool AllowMeshVisualizationControl = true;
+
         /// <summary>
         /// The default ignore raycast layer built into unity.
         /// </summary>
@@ -44,11 +50,23 @@ namespace HoloToolkit.Unity.InputModule
 
         private static Dictionary<GameObject, int> defaultLayersCache = new Dictionary<GameObject, int>();
 
-        private bool previousValue;
-
         protected virtual void Start()
         {
- 
+            // Make sure we have all the components in the scene we need.
+            if (WorldAnchorManager.Instance == null)
+            {
+                Debug.LogError("This script expects that you have a WorldAnchorManager component in your scene.");
+            }
+
+            if (WorldAnchorManager.Instance != null)
+            {
+                // If we are not starting out with actively placing the object, give it a World Anchor
+                if (!IsBeingPlaced)
+                {
+                    WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+                }
+            }
+
             DetermineParent();
 
             interpolator = PlaceParentOnTap
@@ -108,11 +126,16 @@ namespace HoloToolkit.Unity.InputModule
                 SetLayerRecursively(transform, useDefaultLayer: false);
                 InputManager.Instance.AddGlobalListener(gameObject);
 
-
                 // If the user is in placing mode, display the spatial mapping mesh.
-                previousValue = SpatialMappingManager.Instance.DrawVisualMeshes;
-                SpatialMappingManager.Instance.DrawVisualMeshes = true;
+                if (AllowMeshVisualizationControl)
+                {
+                    SpatialMappingManager.Instance.DrawVisualMeshes = true;
+                }
+#if UNITY_WSA && !UNITY_EDITOR
 
+                //Removes existing world anchor if any exist.
+                WorldAnchorManager.Instance.RemoveAnchor(gameObject);
+#endif
             }
             else
             {
@@ -122,8 +145,15 @@ namespace HoloToolkit.Unity.InputModule
                 InputManager.Instance.RemoveGlobalListener(gameObject);
 
                 // If the user is not in placing mode, hide the spatial mapping mesh.
-                SpatialMappingManager.Instance.DrawVisualMeshes = previousValue;
+                if (AllowMeshVisualizationControl)
+                {
+                    SpatialMappingManager.Instance.DrawVisualMeshes = false;
+                }
+#if UNITY_WSA && !UNITY_EDITOR
 
+                // Add world anchor when object placement is done.
+                WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+#endif
             }
         }
 
