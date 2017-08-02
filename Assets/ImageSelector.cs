@@ -5,37 +5,39 @@ using UnityEngine.UI;
 using System;
 
 public class ImageSelector : MonoBehaviour {
-
-    Image i;
     // Use this for initialization
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-    List<Image> getAvailableImages(GameObject Requester)
+    void getAvailableImages(GameObject BigPapa)
     {
-        List<Image> ret = new List<Image>();
         UnityEngine.Object[] ob = Resources.LoadAll("Images/");
+        float c = 0;
         foreach (UnityEngine.Object o in ob)
         {
+            GameObject g = new GameObject(o.name);
+            g.transform.parent = transform;
+            g.transform.localPosition=new Vector3(c,0,0);
+            g.AddComponent<RawImage>();
+            g.AddComponent<ImageSelectorImage>();
+            g.AddComponent<BoxCollider>();
+            g.GetComponent<BoxCollider>().size = new Vector3(g.GetComponent<RectTransform>().sizeDelta.x, g.GetComponent<RectTransform>().sizeDelta.y, 1);
             try
             {
-                i.sprite = (Sprite)o;
+                g.GetComponent<RawImage>().texture = o as Texture2D;
             }
             catch (Exception)
             {
-
-                throw new Exception("Could not convert");
+                Texture t = new Texture();
+                throw new Exception("Could not convert " + o.GetType().ToString() + " to " + t.GetType().ToString());
             }
-            i.gameObject.AddComponent<ImageSelectorImage>();
-            Instantiate(i);
-            ret.Add(i);
+            g.SendMessage("SetTarget", BigPapa);
+            c += g.GetComponent<RectTransform>().sizeDelta.x;
         }
-        return ret;
     }
     void SelectionComplete(GameObject g)
     {

@@ -11,6 +11,7 @@ public class ImageSelectorImage : MonoBehaviour, IInputClickHandler {
     {
         transform.parent.SendMessage("SelectionComplete",gameObject);
         transform.parent = BigPapaInTheSky.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas");
+        transform.parent.Find("ChangePictureButton").SendMessage("ChangeComplete");
         Destroy(gameObject.GetComponent<BoxCollider>());
         Destroy(gameObject.GetComponent<ImageSelectorImage>());
     }
