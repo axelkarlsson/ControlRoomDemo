@@ -114,17 +114,15 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         if (!editMode)
         {
-            //Set node layers to 0 to enable collision so that camera can look for neihbours
             foreach(var node in GetChildNodes())
             {
                 node.ActivateChildren(true);
             }
             UpdateNode(cameraNode);
-            //Set node layers to 2 to disable collision
 
             foreach (var node in GetChildNodes())
             {
-                node.ActivateChildren(true);
+                node.ActivateChildren(false);
             }
             commandMenuActive = false;
             FindPath(cameraNode, destination);

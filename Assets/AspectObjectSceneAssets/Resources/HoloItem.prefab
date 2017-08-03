@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4680102353678896}
   m_Layer: 2
   m_Name: Always Present Graphics
-  m_TagString: Untagged
+  m_TagString: StayActive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 4670774090063780}
   m_Layer: 2
   m_Name: Specific Content
-  m_TagString: Untagged
+  m_TagString: StayActive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

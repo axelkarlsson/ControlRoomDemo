@@ -21,6 +21,7 @@ public class ImageSelector : MonoBehaviour {
         {
             GameObject g = new GameObject(o.name);
             g.transform.parent = transform;
+            g.transform.localScale = new Vector3(.01f, .01f, .01f);
             g.transform.localPosition=new Vector3(c,0,0);
             g.AddComponent<RawImage>();
             g.AddComponent<ImageSelectorImage>();
