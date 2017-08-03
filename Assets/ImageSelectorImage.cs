@@ -10,6 +10,10 @@ public class ImageSelectorImage : MonoBehaviour, IInputClickHandler {
     public void OnInputClicked(InputClickedEventData eventData)
     {
         transform.parent.SendMessage("SelectionComplete",gameObject);
+        foreach (RawImage r in BigPapaInTheSky.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").GetComponentsInChildren<RawImage>())
+        {
+            Destroy(r.gameObject);
+        }
         transform.parent = BigPapaInTheSky.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas");
         transform.parent.Find("ChangePictureButton").SendMessage("ChangeComplete");
         Destroy(gameObject.GetComponent<BoxCollider>());
