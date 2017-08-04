@@ -6,18 +6,22 @@ using System;
 using UnityEngine.UI;
 
 public class ImageSelectorImage : MonoBehaviour, IInputClickHandler {
-    GameObject BigPapaInTheSky;
+    public GameObject BigPapaInTheSky;
+    GameObject Selector;
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        transform.parent.SendMessage("SelectionComplete",gameObject);
-        foreach (RawImage r in BigPapaInTheSky.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").GetComponentsInChildren<RawImage>())
-        {
-            Destroy(r.gameObject);
-        }
+        Selector = transform.parent.gameObject;
         transform.parent = BigPapaInTheSky.transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas");
-        transform.parent.Find("ChangePictureButton").SendMessage("ChangeComplete");
+        transform.localPosition = new Vector3(0, 0, 0.05f);
+        transform.localRotation = Quaternion.identity;
+        transform.localScale =    new Vector3(1, 1, 1);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(1.8f, 1.8f);
+        GetComponent<RawImage>().raycastTarget = false;
+        BigPapaInTheSky.transform.Find("ChangePictureButton").SendMessage("ChangeComplete");
         Destroy(gameObject.GetComponent<BoxCollider>());
         Destroy(gameObject.GetComponent<ImageSelectorImage>());
+        Selector.SendMessage("SelectionComplete", gameObject);
+        transform.SetAsFirstSibling();
     }
 
     // Use this for initialization
