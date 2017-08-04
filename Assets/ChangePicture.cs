@@ -11,7 +11,7 @@ public class ChangePicture : MonoBehaviour,IInputClickHandler {
         if (!isChanging)
         {
             GameObject g = new GameObject("PictureSelector");
-            g.transform.position = transform.parent.position + new Vector3(0, -0.4f, 0);
+            g.transform.position = transform.parent.position + new Vector3(0, -0.4f, -0.2f);
             g.AddComponent<Canvas>();
             g.AddComponent<ImageSelector>();
             g.SendMessage("getAvailableImages", transform.parent.gameObject);
