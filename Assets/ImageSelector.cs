@@ -7,7 +7,9 @@ using System;
 public class ImageSelector : MonoBehaviour {
     // Use this for initialization
     void Start () {
-	}
+        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0.2f, 0.2f);
+        transform.LookAt(Camera.main.transform);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -16,7 +18,8 @@ public class ImageSelector : MonoBehaviour {
     void getAvailableImages(GameObject BigPapa)
     {
         UnityEngine.Object[] ob = Resources.LoadAll("Images/");
-        float c = 0;
+        Debug.Log(ob.Length);
+        float c = 0.2f * (-ob.Length + 1) / 2;
         foreach (UnityEngine.Object o in ob)
         {
             GameObject g = new GameObject(o.name);
@@ -25,7 +28,8 @@ public class ImageSelector : MonoBehaviour {
             g.AddComponent<RawImage>();
             g.AddComponent<ImageSelectorImage>();
             g.AddComponent<BoxCollider>();
-            g.GetComponent<BoxCollider>().size = new Vector3(g.GetComponent<RectTransform>().sizeDelta.x, g.GetComponent<RectTransform>().sizeDelta.y, 1);
+            g.GetComponent<RectTransform>().sizeDelta = new Vector2(0.2f, 0.2f);
+            g.GetComponent<BoxCollider>().size = new Vector3(g.GetComponent<RectTransform>().sizeDelta.x, g.GetComponent<RectTransform>().sizeDelta.y, g.GetComponent<RectTransform>().sizeDelta.x);
             try
             {
                 g.GetComponent<RawImage>().texture = o as Texture2D;
@@ -45,5 +49,6 @@ public class ImageSelector : MonoBehaviour {
         {
             if (t.gameObject != g) { Destroy(t.gameObject); }
         }
+        Destroy(gameObject);
     }
 }
