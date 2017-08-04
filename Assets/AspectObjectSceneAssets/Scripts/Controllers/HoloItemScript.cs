@@ -164,7 +164,7 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 #if NETFX_CORE
     private async void LaunchThing()
     {
-        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://"));
+        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://" + name));
     }
 #endif
 
