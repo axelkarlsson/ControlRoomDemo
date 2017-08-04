@@ -164,12 +164,7 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 #if NETFX_CORE
     private async void LaunchThing()
     {
-        Windows.System.LauncherOptions opt = new Windows.System.LauncherOptions();
-        opt.DisplayApplicationPicker = false;
-        opt.TargetApplicationPackageFamilyName = "ef246e93-5873-4762-a7d9-865821b7fae8_mv85jss3rj790";
-        ValueSet inputData = new ValueSet();
-        inputData["ID"] = gameObject.name;
-        Windows.System.LaunchUriResult success = await Windows.System.Launcher.LaunchUriForResultsAsync(new Uri("holoaspect://"), opt, inputData);
+        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://"));
     }
 #endif
 
@@ -187,16 +182,17 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
     public void OnHoldCompleted(HoldEventData eventData)
     {
+        //Needed for Interface  
+    }
+
+    public void OnHoldStarted(HoldEventData eventData)
+    {
+
         //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
         Keyboard.Instance.Close();
         Keyboard.Instance.PresentKeyboard();
         Keyboard.Instance.RepositionKeyboard(Camera.main.transform.position + Camera.main.transform.forward * 2);
         Keyboard.Instance.onTextSubmitted += this.Keyboard_onTextSubmitted;
-    }
-
-    public void OnHoldStarted(HoldEventData eventData)
-    {
-        //Needed for Interface
     }
 
     private void Keyboard_onTextSubmitted(object sender, EventArgs e)

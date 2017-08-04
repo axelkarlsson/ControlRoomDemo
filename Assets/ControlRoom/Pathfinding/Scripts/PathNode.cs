@@ -54,12 +54,6 @@ public class PathNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!cameraNode && inActivePath && !GetComponentInParent<PathFinder>().editMode)
-        {
-            transform.Rotate(Vector3.forward, 1f);
-        }
-        */
     }
 
 
@@ -69,15 +63,14 @@ public class PathNode : MonoBehaviour
         if (!cameraNode)
         {
             ShowNode(true);
-            transform.LookAt(target.gameObject.transform.position);
+            transform.LookAt(target.transform.position);
         }
     }
 
 
-    //Rotate the destination node to look at the ground
+ 
     public void RotateEndPoint(PathNode nextPoint)
     {
-        ShowNode(true);
         transform.LookAt(nextPoint.transform.position);
         transform.Rotate(0, 180, 0);
     }
@@ -178,14 +171,12 @@ public class PathNode : MonoBehaviour
 
     public void ActivateChildren(bool state)
     {
-        for(int i = 0; i < transform.childCount; i++)
+
+        foreach (Transform holo_t in transform)
         {
-            if (GetComponent<HoloItemScript>() == null)
-            {
-                transform.GetChild(i).gameObject.SetActive(state);
-            }
-            else if (transform.GetChild(i).GetComponent<TapToPlaceNode>() != null) { transform.GetChild(i).gameObject.SetActive(state); }
+            if (holo_t.gameObject.tag != "StayActive") { holo_t.gameObject.SetActive(state); }
         }
+
     }
 
 

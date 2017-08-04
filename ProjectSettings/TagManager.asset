@@ -20,6 +20,7 @@ TagManager:
   - CommandDisplayer
   - CommandMenu
   - FactoryObject
+  - StayActive
   layers:
   - Default
   - TransparentFX
