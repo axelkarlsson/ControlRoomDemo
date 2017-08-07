@@ -176,6 +176,11 @@ public class PathNode : MonoBehaviour
         {
             if (holo_t.gameObject.tag != "StayActive") { holo_t.gameObject.SetActive(state); }
         }
+        foreach (ChangeText t in transform.GetComponentsInChildren<ChangeText>())
+        {
+            t.BBoxEnabled(state);
+        }
+
 
     }
 
