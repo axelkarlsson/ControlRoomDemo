@@ -197,10 +197,15 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
     private void Keyboard_onTextSubmitted(object sender, EventArgs e)
     {
-        string tmp;
+        string newName;
         var keyboard = sender as Keyboard;
-        tmp = keyboard.m_InputField.text.Replace(' ', '_');
-        gameObject.name = tmp;
+        newName = keyboard.m_InputField.text.Replace(' ', '_');
+        gameObject.name = newName;
+        var worldAnchorNode = GetComponentInChildren<TapToPlaceNode>();
+        if(worldAnchorNode != null)
+        {
+            worldAnchorNode.UpdateWorldAnchorName(newName);
+        }
         transform.Find("Specific Content").Find("Center Content").Find("Center_Canvas").Find("Text").GetComponent<Text>().text = gameObject.name;
         Keyboard.Instance.onTextSubmitted -= this.Keyboard_onTextSubmitted;
     }

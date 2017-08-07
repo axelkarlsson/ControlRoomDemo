@@ -44,9 +44,11 @@ public class PathNode : MonoBehaviour
         {
             ShowNode(GetComponentInParent<PathFinder>().editMode);
         }
-        else { cameraNode = true;
+        else {
+            cameraNode = true;
             GetComponentInChildren<MeshRenderer>().enabled = false;
             GetComponentInChildren<MeshCollider>().gameObject.layer = 2;
+            GetComponentInChildren<TapToPlaceNode>().enabled = false;
         }
     }
 

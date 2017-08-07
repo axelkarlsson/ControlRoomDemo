@@ -27,6 +27,13 @@ namespace HoloToolkit.Unity.InputModule
         [Tooltip("Specify the parent game object to be moved on tap, if the immediate parent is not desired.")]
         public GameObject ParentGameObjectToPlace;
 
+        private static int nodes = 0;
+        public int nodeCount { get
+            {
+                return ++nodes;
+            }}
+
+        private int nodeId;
         /// <summary>
         /// Keeps track of if the user is moving the object or not.
         /// Setting this to true will enable the user to move and place the object in the scene.
@@ -40,17 +47,40 @@ namespace HoloToolkit.Unity.InputModule
         /// </summary>
         private const int IgnoreRaycastLayer = 2;
 
+        public string SavedAnchorFriendlyName = "node";
+
         private Interpolator interpolator;
 
         private static Dictionary<GameObject, int> defaultLayersCache = new Dictionary<GameObject, int>();
 
         protected virtual void Start()
         {
-               DetermineParent();
+            // Make sure we have all the components in the scene we need.
+            if (WorldAnchorManager.Instance == null)
+            {
+                Debug.LogError("This script expects that you have a WorldAnchorManager component in your scene.");
+            }
+
+            nodeId = nodeCount;
+
+            DetermineParent();
+            SavedAnchorFriendlyName = PlaceParentOnTap ? ParentGameObjectToPlace.name : SavedAnchorFriendlyName;
+            SavedAnchorFriendlyName += nodeId.ToString();
 
             interpolator = PlaceParentOnTap
                 ? ParentGameObjectToPlace.EnsureComponent<Interpolator>()
                 : gameObject.EnsureComponent<Interpolator>();
+
+            
+            if (WorldAnchorManager.Instance != null)
+            {
+                // If we are not starting out with actively placing the object, give it a World Anchor
+                if (!IsBeingPlaced)
+                {
+                    WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+                }
+            }
+            
 
             if (IsBeingPlaced)
             {
@@ -109,6 +139,13 @@ namespace HoloToolkit.Unity.InputModule
                     GetComponentInParent<PathFinder>().commandMenuActive = false;
                 }
 
+
+#if UNITY_WSA && !UNITY_EDITOR
+
+                //Removes existing world anchor if any exist.
+                WorldAnchorManager.Instance.RemoveAnchor(gameObject);
+#endif
+
             }
             else
             {
@@ -122,8 +159,15 @@ namespace HoloToolkit.Unity.InputModule
                     GetComponentInParent<PathFinder>().commandMenuActive = true;
                 }
 
+#if UNITY_WSA && !UNITY_EDITOR
+
+                // Add world anchor when object placement is done.
+                WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+#endif
+
             }
-            
+
+
         }
 
         private void DetermineParent()
@@ -172,6 +216,16 @@ namespace HoloToolkit.Unity.InputModule
             {
                 SetLayerRecursively(objectToSet.GetChild(i), useDefaultLayer);
             }
+        }
+
+        public void UpdateWorldAnchorName(string newName)
+        {
+
+            SavedAnchorFriendlyName = newName;
+#if UNITY_WSA && !UNITY_EDITOR
+                WorldAnchorManager.Instance.RemoveAnchor(gameObject);
+                WorldAnchorManager.Instance.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+#endif
         }
     }
 }
