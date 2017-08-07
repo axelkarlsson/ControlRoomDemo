@@ -56,6 +56,7 @@ namespace HoloToolkit.Unity
         private void AnchorStoreReady(WorldAnchorStore anchorStore)
         {
             AnchorStore = anchorStore;
+            RemoveAllAnchors();
         }
 #endif
 

@@ -7,7 +7,7 @@
 # Default behavior is to never overwrite files
 ControlRoomDemo.sln: modified
 ControlRoomDemo\App.cs: 3A399EEEC7AA6AF046804030712CB1C8
-ControlRoomDemo\ControlRoomDemo.csproj: B011F39485A6186936FB4E8714B46CC4
+ControlRoomDemo\ControlRoomDemo.csproj: 464113080DF3B077A27D509E43A2F23E
 ControlRoomDemo\ControlRoomDemo.csproj.user: modified
 ControlRoomDemo\Package.appxmanifest: modified
 ControlRoomDemo\project.json: 1D02BC64BAC0D041019673A1C4C51737
