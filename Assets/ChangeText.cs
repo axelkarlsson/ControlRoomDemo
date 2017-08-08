@@ -78,7 +78,7 @@ public class ChangeText : MonoBehaviour, IHoldHandler, IInputClickHandler
 #if NETFX_CORE
     private async void LaunchThing()
     {
-        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://" + GetComponenet<Text>().text));
+        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://" + GetComponent<Text>().text));
     }
 #endif
     public void BBoxEnabled(bool state)
