@@ -22,7 +22,7 @@ public class CommandMenu : MonoBehaviour  {
         thirdCommand.transform.position += new Vector3(0, 0.16f, 0);
         GameObject fourthCommand = Instantiate(prefabCommand, transform);
         fourthCommand.GetComponent<MenuCommandLink>().methodName = "ToggleModeCommand";
-        fourthCommand.GetComponentInChildren<TextMesh>().text = "Toggle";
+        fourthCommand.GetComponentInChildren<TextMesh>().text = "Edit";
         fourthCommand.transform.position += new Vector3(0, -0.16f, 0);
         GameObject fifthCommand = Instantiate(prefabCommand, transform);
         fifthCommand.GetComponent<MenuCommandLink>().methodName = "ShowNavigationMenuCommand";

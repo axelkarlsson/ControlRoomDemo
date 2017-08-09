@@ -150,16 +150,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecognizerStart: 0
   Keywords:
-  - Keyword: input
+  - Keyword: object
     KeyCode: 110
-  - Keyword: draw lines
+  - Keyword: lines
     KeyCode: 98
-  - Keyword: delete node
+  - Keyword: delete
     KeyCode: 99
   - Keyword: edit
     KeyCode: 103
   - Keyword: show menu
     KeyCode: 102
+  - Keyword: navigation
+    KeyCode: 46
+  - Keyword: node
+    KeyCode: 48
 --- !u!1 &426388790
 GameObject:
   m_ObjectHideFlags: 0

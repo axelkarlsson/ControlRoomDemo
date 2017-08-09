@@ -354,19 +354,25 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     {
         switch (eventData.RecognizedText.ToLower())
         {
-            case "input":
+            case "node":
                 CreateNodeCommand();
                 break;
-            case "delete node":
+            case "delete":
                 DeleteNodeCommand();
                 break;
-            case "draw lines":
+            case "lines":
                 LineNeighboursCommand();
                 break;
             case "edit":
                 ToggleModeCommand();
                 break;
             case "show menu":
+                ShowNavigationMenuCommand();
+                break;
+            case "object":
+                CreateObjectCommand();
+                break;
+            case "navigation":
                 ShowNavigationMenuCommand();
                 break;
         }
