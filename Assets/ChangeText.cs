@@ -22,7 +22,7 @@ public class ChangeText : MonoBehaviour, IHoldHandler, IInputClickHandler
     }
     public void OnHoldStarted(HoldEventData eventData)
     {
-        if (transform.parent.parent.parent.parent.Find("MoveButton").gameObject.activeSelf)
+        if (GetComponentInParent<PathFinder>() != null && GetComponentInParent<PathFinder>().editMode)
         {
             //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
             Keyboard.Instance.Close();
@@ -78,7 +78,7 @@ public class ChangeText : MonoBehaviour, IHoldHandler, IInputClickHandler
 #if NETFX_CORE
     private async void LaunchThing()
     {
-        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoaspect://" + GetComponent<Text>().text));
+        bool success = await Windows.System.Launcher.LaunchUriAsync(new Uri("holoabb-aspect://" + GetComponent<Text>().text));
     }
 #endif
     public void BBoxEnabled(bool state)

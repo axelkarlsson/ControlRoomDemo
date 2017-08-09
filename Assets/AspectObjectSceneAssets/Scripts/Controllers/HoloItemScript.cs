@@ -187,12 +187,14 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
 
     public void OnHoldStarted(HoldEventData eventData)
     {
-
-        //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
-        Keyboard.Instance.Close();
-        Keyboard.Instance.PresentKeyboard();
-        Keyboard.Instance.RepositionKeyboard(Camera.main.transform.position + Camera.main.transform.forward * 2);
-        Keyboard.Instance.onTextSubmitted += this.Keyboard_onTextSubmitted;
+        if (GetComponentInParent<PathFinder>() != null && GetComponentInParent<PathFinder>().editMode)
+        {
+            //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
+            Keyboard.Instance.Close();
+            Keyboard.Instance.PresentKeyboard();
+            Keyboard.Instance.RepositionKeyboard(Camera.main.transform.position + Camera.main.transform.forward * 2);
+            Keyboard.Instance.onTextSubmitted += this.Keyboard_onTextSubmitted;
+        }
     }
 
     private void Keyboard_onTextSubmitted(object sender, EventArgs e)
