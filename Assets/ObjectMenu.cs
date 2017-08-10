@@ -58,6 +58,15 @@ public class ObjectMenu : MonoBehaviour {
                              select new Object_;
             return Objects.Select(x=>x.name).ToList();
         }
+        else
+        {
+        return new List<string>
+        {
+            "Non-existant Object A",
+            "Non-existant Object B",
+            "Non-existant Object C"
+        };
+        }
     }
 #else
     List<string> readConfig()
