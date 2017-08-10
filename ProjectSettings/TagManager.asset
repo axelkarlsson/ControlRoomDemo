@@ -21,6 +21,7 @@ TagManager:
   - CommandMenu
   - FactoryObject
   - StayActive
+  - cfg
   layers:
   - Default
   - TransparentFX

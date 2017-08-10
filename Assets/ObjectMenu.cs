@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Xml.Linq;
 using System.Linq;
+
 #if NETFX_CORE
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
@@ -20,16 +21,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.System;
+using System.Threading.Tasks;
 using Windows.Storage;
 #endif
 using System.ComponentModel;
 public class ObjectMenu : MonoBehaviour {
-    private class Object_
+
+    private class NameClass
     {
         public string name;
-        public List<object> Aspects;
     }
 
+    private List<string> objectNames = new List<string>();
     // Use this for initialization
     void Start() { 
 	}
@@ -38,45 +41,41 @@ public class ObjectMenu : MonoBehaviour {
 
     }
 #if NETFX_CORE
-    async List<string> readConfig()
+    void readConfig()
     {
-        string fullPath = Path.Combine(KnownFolders.CameraRoll, "cfg.xml")´;
-        bool fileExists = true;
+        objectNames.Clear();
+        string fullPath = Path.Combine(KnownFolders.CameraRoll.Path, "cfg.xml");
+
         try
         {
-            StorageFile s = await StorageFile.GetFileFromPathAsync(fullPath);
-        }
-        catch (FileNotFoundException)
-        {
-            fileExists = false;
-        }
-
-        if (fileExists)
-        {
             XDocument objectList = XDocument.Load(fullPath);
-            var Objects = from query in objectList.Descendants("Object")
-                             select new Object_;
-            return Objects.Select(x=>x.name).ToList();
+            var names = from query in objectList.Descendants("Object")
+                        select new NameClass
+                        {
+                            name = (string)query.Attribute("name")
+                        };
+            foreach (NameClass s in names)
+            {
+                objectNames.Add(s.name);
+            }
         }
-        else
+        catch (Exception s)
         {
-        return new List<string>
-        {
-            "Non-existant Object A",
-            "Non-existant Object B",
-            "Non-existant Object C"
-        };
+            GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<AllComands>().commandDisplayTime = 10000;
+            GameObject.FindGameObjectWithTag("CommandDisplayer").GetComponent<AllComands>().TextLog(s.ToString());
+            objectNames.Add("Example A");
+            objectNames.Add("Example B");
+            objectNames.Add("Example C");
+        }
         }
     }
 #else
-    List<string> readConfig()
+    void readConfig()
     { 
-        return new List<string>
-        {
-            "Non-existant Object A",
-            "Non-existant Object B",
-            "Non-existant Object C"
-        };
+        objectNames.Clear();
+        objectNames.Add("Example A");
+        objectNames.Add("Example B");
+        objectNames.Add("Example C");
     }
 #endif
 
@@ -86,7 +85,13 @@ public class ObjectMenu : MonoBehaviour {
         if (transform.childCount == 0)
         {
             float tHeight = 0.8f;
-            foreach (string s in readConfig())
+#if NETFX_CORE
+            var task = Task.Run(() => readConfig());
+            task.Wait();
+#else
+            readConfig();
+#endif
+            foreach (string s in objectNames)
             {
                 GameObject g = Instantiate(Resources.Load("ObjectMenuItem") as GameObject, transform);
                 g.name = s;

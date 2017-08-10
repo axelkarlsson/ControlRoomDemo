@@ -71,7 +71,6 @@ public class PathFinder : MonoBehaviour , ISpeechHandler
     // Update is called once per frame
     void Update()
     {
-       
         updateCount++;
         if (updateCount > frameUpdateInterval)
         {
