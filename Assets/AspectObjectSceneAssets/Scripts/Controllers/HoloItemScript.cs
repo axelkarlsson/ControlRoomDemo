@@ -189,11 +189,19 @@ public class HoloItemScript : MonoBehaviour, IInputClickHandler ,IHoldHandler
     {
         if (GetComponentInParent<PathFinder>() != null && GetComponentInParent<PathFinder>().editMode)
         {
+            //New Implementation
+            GameObject g = transform.Find("ObjectMenu").gameObject;
+            g.SetActive(true);
+            ObjectMenu o = g.GetComponent<ObjectMenu>();
+            transform.Find("Specific Content").Find("Side Content").gameObject.SetActive(false);
+            o.Run();
+            /* Old Implementation
             //Show the keyboard prefab included in holotoolkit and subscribe to relevant events
             Keyboard.Instance.Close();
             Keyboard.Instance.PresentKeyboard();
             Keyboard.Instance.RepositionKeyboard(Camera.main.transform.position + Camera.main.transform.forward * 2);
             Keyboard.Instance.onTextSubmitted += this.Keyboard_onTextSubmitted;
+            */
         }
     }
 

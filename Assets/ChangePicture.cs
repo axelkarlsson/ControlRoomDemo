@@ -15,7 +15,7 @@ public class ChangePicture : MonoBehaviour,IInputClickHandler {
             g.AddComponent<Canvas>();
             g.AddComponent<ImageSelector>();
             g.SendMessage("getAvailableImages", transform.parent.gameObject);
-            isChanging = false;
+            isChanging = true;
         }
     }
 
