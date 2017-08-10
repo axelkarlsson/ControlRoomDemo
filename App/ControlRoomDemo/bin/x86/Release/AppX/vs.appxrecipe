@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>3E3738151E9E01BCEC421CE0D5E32BA0C29328E7D9F672793D638316C9D02093</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>BE946AE3D5DAA7E60BBF5CB99F2B00F9BC9FA599AD0FB96BCE3A8C551B427007</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>ControlRoomDemo_1.0.0.0_x86__pzq3xp76mxafg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ControlRoomDemo_pzq3xp76mxafg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ControlRoomDemo</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-08T11:00:55.854</Modified>
+      <Modified>2017-08-09T14:57:47.956</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\bin\x86\Release\ControlRoomDemo.exe">
       <PackagePath>entrypoint\ControlRoomDemo.exe</PackagePath>
-      <Modified>2017-08-08T11:00:39.623</Modified>
+      <Modified>2017-08-09T14:57:27.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -501,7 +501,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2017-08-07T08:29:20.093</Modified>
+      <Modified>2017-08-09T14:56:42.922</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -555,11 +555,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2017-08-07T08:28:35.658</Modified>
+      <Modified>2017-08-09T14:55:55.665</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2017-08-07T08:28:33.680</Modified>
+      <Modified>2017-08-09T14:55:53.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -567,39 +567,39 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2017-08-07T08:28:50.560</Modified>
+      <Modified>2017-08-09T14:56:12.204</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2017-08-07T08:28:35.968</Modified>
+      <Modified>2017-08-09T14:55:56.008</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\resources.assets">
       <PackagePath>Data\resources.assets</PackagePath>
-      <Modified>2017-08-07T08:28:36.039</Modified>
+      <Modified>2017-08-09T14:55:56.093</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2017-08-07T08:28:40.730</Modified>
+      <Modified>2017-08-09T14:56:01.313</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2017-08-07T08:28:33.671</Modified>
+      <Modified>2017-08-09T14:55:53.282</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\resources.assets.resS">
       <PackagePath>Data\resources.assets.resS</PackagePath>
-      <Modified>2017-08-07T08:28:36.035</Modified>
+      <Modified>2017-08-09T14:55:56.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
-      <Modified>2017-08-07T08:28:40.720</Modified>
+      <Modified>2017-08-09T14:56:01.303</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2017-08-07T08:29:19.984</Modified>
+      <Modified>2017-08-09T14:56:42.801</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Data\nativePlugins.txt">
       <PackagePath>Data\nativePlugins.txt</PackagePath>
-      <Modified>2017-08-07T08:29:19.989</Modified>
+      <Modified>2017-08-09T14:56:42.806</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -608,47 +608,47 @@
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-07T11:37:04.663</Modified>
+      <Modified>2017-08-09T14:57:30.382</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2017-08-08T11:00:50.604</Modified>
+      <Modified>2017-08-09T14:57:41.432</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.Analytics.dll">
       <PackagePath>UnityEngine.Analytics.dll</PackagePath>
-      <Modified>2017-08-08T11:00:50.672</Modified>
+      <Modified>2017-08-09T14:57:41.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2017-08-08T11:00:51.545</Modified>
+      <Modified>2017-08-09T14:57:42.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2017-08-08T11:00:51.699</Modified>
+      <Modified>2017-08-09T14:57:42.180</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2017-08-08T11:00:51.756</Modified>
+      <Modified>2017-08-09T14:57:42.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2017-08-08T11:00:51.887</Modified>
+      <Modified>2017-08-09T14:57:42.443</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\UnityEngine.VR.dll">
       <PackagePath>UnityEngine.VR.dll</PackagePath>
-      <Modified>2017-08-08T11:00:51.958</Modified>
+      <Modified>2017-08-09T14:57:42.464</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2017-08-08T11:00:48.650</Modified>
+      <Modified>2017-08-09T14:57:39.760</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\Assembly-CSharp-firstpass.dll">
       <PackagePath>Assembly-CSharp-firstpass.dll</PackagePath>
-      <Modified>2017-08-08T11:00:48.704</Modified>
+      <Modified>2017-08-09T14:57:39.815</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ABB\Documents\Hololens\ControlRoomDemo\ControlRoomDemo\App\ControlRoomDemo\bin\x86\Release\Core\ControlRoomDemo.exe">
       <PackagePath>ControlRoomDemo.exe</PackagePath>
-      <Modified>2017-08-08T11:00:55.850</Modified>
+      <Modified>2017-08-09T14:57:47.938</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
