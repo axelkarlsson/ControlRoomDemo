@@ -67,7 +67,6 @@ public class ObjectMenu : MonoBehaviour {
             objectNames.Add("Example B");
             objectNames.Add("Example C");
         }
-        }
     }
 #else
     void readConfig()
